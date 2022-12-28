@@ -35,7 +35,7 @@
             <a class="nav-link" href="#">Retur Pesanan</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Tentang Kami</a>
+            <a class="nav-link" href="/Zellenials/Pages/User/tentangkami.php">Tentang Kami</a>
             </li>
             <li class="nav-item" style="padding-top: 5px; padding-left: 10px;">
             <a href="#"><img
