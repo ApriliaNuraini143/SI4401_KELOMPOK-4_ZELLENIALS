@@ -1,4 +1,28 @@
 <!doctype html>
+<?php
+	session_start();
+    if (isset($_SESSION['admin'])){
+        $admin = $_SESSION['admin'];
+    }else{
+        $admin = FALSE;
+    }
+    ?>
+    
+    <?php
+    if ($admin) {
+        echo $admin;
+        header("location: admin/homepage.php");
+        exit;
+
+    }
+    $login = isset($_SESSION['state']);
+    $remember = isset($_COOKIE['email']);
+    if ($remember) {
+        $email = $_COOKIE['email'];
+        $password = $_COOKIE['pass'];
+    }
+?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
