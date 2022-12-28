@@ -1,28 +1,4 @@
 <!doctype html>
-<?php
-	session_start();
-    if (isset($_SESSION['admin'])){
-        $admin = $_SESSION['admin'];
-    }else{
-        $admin = FALSE;
-    }
-    ?>
-    
-    <?php
-    if ($admin) {
-        echo $admin;
-        header("location: admin/homepage.php");
-        exit;
-
-    }
-    $login = isset($_SESSION['state']);
-    $remember = isset($_COOKIE['email']);
-    if ($remember) {
-        $email = $_COOKIE['email'];
-        $password = $_COOKIE['pass'];
-    }
-?>
-
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -45,36 +21,27 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 70px;">
-            <?php if (!$login) :?>
-              <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/Zellenials/Pages/User/homepage.php">Beranda</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="/Zellenials/Pages/User/tentangkami.php">Tentang Kami</a>
-              </li>
-            <?php else : ?>
-              <li class="nav-item">
-              <a class="nav-link" href="/Zellenials/Pages/User/shopping-cart.php">Keranjang</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="#">Status Pesanan</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="/Zellenials/Pages/User/my-order.php">Pesanan Saya</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="#">Retur Pesanan</a>
-              </li>
-            <?php endif; ?>
-            <?php if ($login) :?>
-              <li class="nav-item" style="padding-top: 5px; padding-left: 10px;">
-              <a href="#"><img src="/Zellenials/Assets/person-circle.png" alt="person-circle.png"></a>
-              </li>
-            <?php else : ?>
-              <li class="nav-item">
-              <a class="nav-link" href="/Zellenials/Pages/User/my-order.php">Login</a>
-              </li>
-            <?php endif; ?>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Zellenials/Pages/User/homepage.php">Beranda</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Zellenials/Pages/User/shopping-cart.php">Keranjang</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Zellenials/Pages/User/shopping-order.php">Status Pesanan</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Zellenials/Pages/User/my-order.php">Pesanan Saya</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Zellenials/Pages/User/retur-order.php">Retur Pesanan</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Zellenials/Pages/User/about-us.php">Tentang Kami</a>
+            </li>
+            <li class="nav-item" style="padding-top: 5px; padding-left: 10px;">
+            <a href="#"><img src="/Zellenials/Assets/person-circle.png" alt="person-circle.png"></a>
+            </li>
         </ul>
         </div>
     </div>
