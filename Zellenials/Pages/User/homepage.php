@@ -34,10 +34,10 @@
             <a class="nav-link" href="/Zellenials/Pages/User/my-order.php">Pesanan Saya</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/Zellenials/Pages/User/retur-order.php">Retur Pesanan</a>
+            <a class="nav-link" href="/Zellenials/Pages/User/return-1.php">Retur Pesanan</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/Zellenials/Pages/User/about-us.php">Tentang Kami</a>
+            <a class="nav-link" href="/Zellenials/Pages/User/tentangkami.php">Tentang Kami</a>
             </li>
             <li class="nav-item" style="padding-top: 5px; padding-left: 10px;">
             <a href="#"><img src="/Zellenials/Assets/person-circle.png" alt="person-circle.png"></a>
