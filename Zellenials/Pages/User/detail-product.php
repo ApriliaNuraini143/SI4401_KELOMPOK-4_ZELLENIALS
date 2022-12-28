@@ -69,13 +69,13 @@
                         </div>
                         <div class="carousel-inner" style="max-width: 300px; border-radius: 16px">
                         <div class="carousel-item active">
-                            <img src="Brainstorming/BR2.jpeg" class="d-block w-100" alt="...">
+                            <img src="/Zellenials/Assets/card-img1.png" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="Brainstorming/BR1.jpeg" class="d-block w-100" alt="...">
+                            <img src="/Zellenials/Assets/card-img2.png" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="Brainstorming/BR3.png" class="d-block w-100" alt="...">
+                            <img src="/Zellenials/Assets/card-img3.png" class="d-block w-100" alt="...">
                         </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

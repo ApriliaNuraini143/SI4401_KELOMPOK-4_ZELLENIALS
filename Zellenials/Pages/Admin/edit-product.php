@@ -14,25 +14,71 @@
 
         <!-- SIDEBAR -->
 
-        <div class="sideBarSection" style="font-weight:600; height: 100%;">
-            <nav class="sidebarContent" style="position: relative; width: 232px; height: 920px; left:0; background: #c5ff01;">
+        <style>
+        .nav{
+            background: #c5ff01;
+        }
+        .sidebar li .submenu{ 
+            list-style: none; 
+            margin: 0; 
+        }
+        </style>
+
+        <div class="sideBarSection" style="font-weight:600;">
+            <nav class="sidebar card py-2 mb-4" style="position: retalive; width: 232px; height: 880px; left:0; background: #c5ff01;">
                 <div class="logo">
-                    <img src="Logo.jpeg" style="margin: 46px 72px 40px 72px; width: 74px; border-radius: 100%;">
+                    <img src="/Zellenials/Assets/favicon.ico" style="margin: 46px 72px 40px 72px; width: 74px; border-radius: 100%;">
                 </div>
-                <ul style="list-style: none;">
-                    <li style="line-height: 48px; border-bottom: 1px solid black;"><a style="color: #1f1f1f; text-decoration: none" href="#">Dashboard</a></li>
-                    <li style="line-height: 48px; border-bottom: 1px solid black;">
-                        <a style="color: #1f1f1f; text-decoration: none" href="#">Produk</a>
-                        <ul style="line-height: 48px; border-bottom: 1px solid black;"><a style="color: #1f1f1f; text-decoration: none;" href="#">Tambahkan Produk</a></ul>
-                        <ul style="line-height: 48px; border-bottom: 1px solid black;"><a style="color: #1f1f1f; text-decoration: none" href="#">Sunting Produk</a></ul>
-                        <ul><a style="color: #1f1f1f; text-decoration: none" href="#">Lihat Produk</a></ul>
+
+                <ul class="nav flex-column" id="nav_accordion" style="list-style: none; margin-left: 10px;">
+                    <li class="nav-item" style="line-height: 32px; border-bottom: 1px solid black;">
+                        <a class="nav-link" href="../Admin/dashboard.php" style="color: #1f1f1f;">Dashboard</a>
                     </li>
-                    <li style="line-height: 48px; border-bottom: 1px solid black;">
-                        <a style="color: #1f1f1f; text-decoration: none" href="#">Custom Produk</a>
+                    <li class="nav-item has-submenu" style="line-height: 32px; border-bottom: 1px solid black;">
+                        <a class="nav-link" href="#" style="color: #1f1f1f;">Produk</a>
+                        <ul class="submenu collapse">
+                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/add-product.php" style="color: #1f1f1f;">Tambahkan Produk</a></li>
+                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/edit-product.php" style="color: #1f1f1f;">Sunting Produk</a></li>
+                            <li><a class="nav-link" href="../Admin/view-product.php" style="color: #1f1f1f;">Lihat Produk</a> </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="line-height: 32px; border-bottom: 1px solid black;">
+                        <a class="nav-link" href="../Admin/custom-product.php" style="color: #1f1f1f;">Custom Produk</a>
                     </li>
                 </ul>
             </nav>
         </div>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function(){
+        document.querySelectorAll('.sidebar .nav-link').forEach(function(element){
+            
+            element.addEventListener('click', function (e) {
+
+            let nextEl = element.nextElementSibling;
+            let parentEl  = element.parentElement;	
+
+                if(nextEl) {
+                    e.preventDefault();	
+                    let mycollapse = new bootstrap.Collapse(nextEl);
+                    
+                    if(nextEl.classList.contains('show')){
+                    mycollapse.hide();
+                    } else {
+                        mycollapse.show();
+                        // find other submenus with class=show
+                        var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
+                        // if it exists, then close all of them
+                        if(opened_submenu){
+                        new bootstrap.Collapse(opened_submenu);
+                        }
+                    }
+                }
+            }); // addEventListener
+        }) // forEach
+        }); 
+        // DOMContentLoaded  end
+        </script>
 
         <!-- SIDEBAR -->
 
@@ -56,13 +102,7 @@
                         </div>
                         <div class="carousel-inner" style="max-width: 300px; border-radius: 16px">
                             <div class="carousel-item active">
-                            <img src="Brainstorming/BR2.jpeg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                            <img src="Brainstorming/BR1.jpeg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                            <img src="Brainstorming/BR3.png" class="d-block w-100" alt="...">
+                                <img src="/Zellenials/Assets/card-img1.png" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -81,7 +121,7 @@
                 <!-- FORM PRODUK -->
         
                 <div class="form" style="margin-left: 40px; color: white; width: 860px;">
-                    <form>
+                    <form action="/Zellenials/Pages/Admin/view-product.php">
                         <div class="mb-3">
                             <label for="form-control" class="form-label">Nama Produk</label>
                             <input type="text" class="form-control" id="namakatalog" value="Brainstorming - Article 2020">
@@ -96,21 +136,19 @@
                             <label for="form-control" class="form-label">Harga Produk</label>
                             <input type="text" class="form-control" id="namakatalog" value="Rp. 149,000">
                         </div>
+
+                        <div class="mb-3">
+                            <label for="form-control" class="form-label">Jenis Kain</label>
+                            <input type="text" class="form-control" id="jenisKain" value="New States Apparel 24s">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="form-control" class="form-label">Jenis Sablon</label>
+                            <input type="text" class="form-control" id="jenisSablon" value="Direct Transfer Film (DTF)">
+                        </div>
     
                         <div class="inputImg">
-                            <p style="margin-bottom: 0.5rem;">Tambahkan Gambar 1</p>
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile02">
-                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                            </div>
-
-                            <p style="margin-bottom: 0.5rem;">Tambahkan Gambar 2</p>
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile02">
-                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                            </div>
-
-                            <p style="margin-bottom: 0.5rem;">Tambahkan Gambar 3</p>
+                            <p style="margin-bottom: 0.5rem;">Tambahkan Gambar</p>
                             <div class="input-group mb-3">
                                 <input type="file" class="form-control" id="inputGroupFile02">
                                 <label class="input-group-text" for="inputGroupFile02">Upload</label>
@@ -148,7 +186,7 @@
                             </div>
     
                         </div>
-                            <button type="submit" class="btn btn-primary" style="margin-top: 32px; background-color: #c5ff01; border-color: #c5ff01; color: #1f1f1f; font-weight: bold;">Tambahkan</button>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 32px; background-color: #c5ff01; border-color: #c5ff01; color: #1f1f1f; font-weight: bold;">Simpan</button>
                     </form>    
                 </div>
 

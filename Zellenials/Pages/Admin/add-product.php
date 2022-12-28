@@ -13,29 +13,6 @@
     <body style="background-color: #1f1f1f; display: flex;">
 
         <!-- SIDEBAR -->
-
-        <!--
-        <div class="sideBarSection" style="font-weight:600; height: 100%;">
-            <nav class="sidebarContent" style="position: relative; width: 232px; height: 920px; left:0; background: #c5ff01;">
-                <div class="logo">
-                    <img src="Logo.jpeg" style="margin: 46px 72px 40px 72px; width: 74px; border-radius: 100%;">
-                </div>
-                <ul style="list-style: none;">
-                    <li style="line-height: 48px; border-bottom: 1px solid black;"><a style="color: #1f1f1f; text-decoration: none" href="#">Dashboard</a></li>
-                    <li style="line-height: 48px; border-bottom: 1px solid black;">
-                        <a style="color: #1f1f1f; text-decoration: none" href="#">Produk</a>
-                        <ul style="line-height: 48px; border-bottom: 1px solid black;"><a style="color: #1f1f1f; text-decoration: none;" href="#">Tambahkan Produk</a></ul>
-                        <ul style="line-height: 48px; border-bottom: 1px solid black;"><a style="color: #1f1f1f; text-decoration: none" href="#">Sunting Produk</a></ul>
-                        <ul><a style="color: #1f1f1f; text-decoration: none" href="#">Lihat Produk</a></ul>
-                    </li>
-                    <li style="line-height: 48px; border-bottom: 1px solid black;">
-                        <a style="color: #1f1f1f; text-decoration: none" href="#">Custom Produk</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        -->
-
         
         <style>
         .nav{
@@ -44,32 +21,29 @@
         .sidebar li .submenu{ 
             list-style: none; 
             margin: 0; 
-            padding: 0; 
-            padding-left: 1rem; 
-            padding-right: 1rem;
         }
         </style>
 
-        <div class="sideBarSection" style="font-weight:600; height: 100%;">
-            <nav class="sidebar card py-2 mb-4" style="position: relative; width: 232px; height: 920px; left:0; background: #c5ff01;">
+        <div class="sideBarSection" style="font-weight:600;">
+            <nav class="sidebar card py-2 mb-4" style="position: retalive; width: 232px; height: 880px; left:0; background: #c5ff01;">
                 <div class="logo">
                     <img src="/Zellenials/Assets/favicon.ico" style="margin: 46px 72px 40px 72px; width: 74px; border-radius: 100%;">
                 </div>
 
-                <ul class="nav flex-column" id="nav_accordion" style="list-style: none;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #1f1f1f;">Dashboard</a>
+                <ul class="nav flex-column" id="nav_accordion" style="list-style: none; margin-left: 10px;">
+                    <li class="nav-item" style="line-height: 32px; border-bottom: 1px solid black;">
+                        <a class="nav-link" href="../Admin/dashboard.php" style="color: #1f1f1f;">Dashboard</a>
                     </li>
-                    <li class="nav-item has-submenu">
+                    <li class="nav-item has-submenu" style="line-height: 32px; border-bottom: 1px solid black;">
                         <a class="nav-link" href="#" style="color: #1f1f1f;">Produk</a>
                         <ul class="submenu collapse">
-                            <li><a class="nav-link" href="#" style="color: #1f1f1f;">Tambahkan Produk</a></li>
-                            <li><a class="nav-link" href="#" style="color: #1f1f1f;">Sunting Produk</a></li>
-                            <li><a class="nav-link" href="#" style="color: #1f1f1f;">Lihat Produk</a> </li>
+                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/add-product.php" style="color: #1f1f1f;">Tambahkan Produk</a></li>
+                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/edit-product.php" style="color: #1f1f1f;">Sunting Produk</a></li>
+                            <li><a class="nav-link" href="../Admin/view-product.php" style="color: #1f1f1f;">Lihat Produk</a> </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #1f1f1f;">Custom Produk</a>
+                    <li class="nav-item" style="line-height: 32px; border-bottom: 1px solid black;">
+                        <a class="nav-link" href="../Admin/custom-product.php" style="color: #1f1f1f;">Custom Produk</a>
                     </li>
                 </ul>
             </nav>
@@ -128,7 +102,7 @@
                         </div>
                         <div class="carousel-inner" style="max-width: 300px; border-radius: 16px">
                             <div class="carousel-item active">
-                                <img src="/Zellenials/Assets/addCatalogue.png" class="d-block w-100" alt="...">
+                                <img src="/Zellenials/Assets/card-img1.png" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -162,21 +136,19 @@
                             <label for="form-control" class="form-label">Harga Produk</label>
                             <input type="text" class="form-control" id="namakatalog" placeholder="Rp. xxx,xxx">
                         </div>
+
+                        <div class="mb-3">
+                            <label for="form-control" class="form-label">Jenis Kain</label>
+                            <input type="text" class="form-control" id="jenisKain" placeholder="New States Apparel 24s">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="form-control" class="form-label">Jenis Sablon</label>
+                            <input type="text" class="form-control" id="jenisSablon" placeholder="Direct Transfer Film (DTF)">
+                        </div>
     
                         <div class="inputImg">
-                            <p style="margin-bottom: 0.5rem;">Tambahkan Gambar 1</p>
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile02">
-                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                            </div>
-
-                            <p style="margin-bottom: 0.5rem;">Tambahkan Gambar 2</p>
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile02">
-                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                            </div>
-
-                            <p style="margin-bottom: 0.5rem;">Tambahkan Gambar 3</p>
+                            <p style="margin-bottom: 0.5rem;">Tambahkan Gambar</p>
                             <div class="input-group mb-3">
                                 <input type="file" class="form-control" id="inputGroupFile02">
                                 <label class="input-group-text" for="inputGroupFile02">Upload</label>
