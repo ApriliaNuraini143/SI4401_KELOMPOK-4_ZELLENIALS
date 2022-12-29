@@ -121,7 +121,7 @@
                 <!-- FORM PRODUK -->
         
                 <div class="form" style="margin-left: 40px; color: white; width: 860px;">
-                    <form>
+                    <form action="../Admin/view-product.php">
                         <div class="mb-3">
                             <label for="form-control" class="form-label">Nama Produk</label>
                             <input type="text" class="form-control" id="namakatalog" placeholder="Apa nama produknya?">
@@ -186,7 +186,7 @@
                             </div>
     
                         </div>
-                            <button type="submit" class="btn btn-primary" style="margin-top: 32px; background-color: #c5ff01; border-color: #c5ff01; color: #1f1f1f; font-weight: bold;">Tambahkan</button>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 32px; background-color: #c5ff01; border-color: #c5ff01; color: #1f1f1f; font-weight: bold;" href="/Zellenials/Pages/Admin/view-product.php">Tambahkan</button>
                     </form>    
                 </div>
 

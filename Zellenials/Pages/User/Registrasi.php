@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-md-6 align-self-center" >
         <br>
-<h1 style="text-align:left; font-size: 60px; margin-left:40px; margin-top:50px">Temuka Baju Favorit Mu Disini</h2>
+<h1 style="text-align:left; font-size: 60px; margin-left:40px; margin-top:50px">Temukan Baju Favorit Mu Disini</h2>
         </div>
         <div class="col-md-6 align-self-end p-5" style="margin-top:100px; padding-left: 50px; padding-right: 50px;">
             <div style="background-color: #1f1f1f;">
@@ -50,7 +50,7 @@
                             <input type="password" name="password" class="form-control">
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn mt-2 btn-primary px-4" style="background-color:#C5FF01" name="login">Daftar</button>
+                            <button class="btn mt-2 btn-primary px-4" style="background-color:#C5FF01; border-color: #C5FF01; color: black; font-weight: bolder;" href="../Zellenials/Pages/User/Login.php" name="register">Daftar</button>
                         </div>
                     </form>
                 </div>

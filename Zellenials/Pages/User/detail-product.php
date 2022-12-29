@@ -95,6 +95,7 @@
             <!-- DETAIL PRODUK -->
 
             <div class="productDetail">
+                <form action="../User/shopping-cart.php" method="POST" enctype="multipart/form-data">
                 <h2 style="color: #1f1f1f; margin-left: 40px; margin-top: 16px;">Brainstorming - Article 2020</h2>
 
                 <div class="detail" style="margin-left: 40px; margin-top: 32px;">
@@ -157,6 +158,7 @@
                 <h2 style="color: #1f1f1f; margin-left: 40px; font-weight: bold;">Rp. 149.000</h2>
 
                 <button type="submit" class="btn btn-primary" style="background-color: #c5ff01; border-color: #c5ff01; color: #1f1f1f; font-weight: bold; margin-left: 40px; margin-top: 32px; margin-bottom: 32px;">Beli Sekarang</button>
+                </form>
             </div>
 
             <!-- DETAIL PRODUK -->

@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@megannih 
-ApriliaNuraini143
-/
-SI4401_KELOMPOK-4_ZELLENIALS
-Private
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-SI4401_KELOMPOK-4_ZELLENIALS/Zellenials/Pages/User/detail.php
-@afdalcitra
-afdalcitra Add files via upload
-…
-Latest commit a783db9 last week
- History
- 1 contributor
-149 lines (136 sloc)  6.9 KB
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -48,14 +19,12 @@ Latest commit a783db9 last week
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 70px;">
-            <?php if (!$login) :?>
               <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/Zellenials/Pages/User/homepage.php">Beranda</a>
               </li>
               <li class="nav-item">
               <a class="nav-link" href="/Zellenials/Pages/User/tentangkami.php">Tentang Kami</a>
               </li>
-            <?php else : ?>
               <li class="nav-item">
               <a class="nav-link" href="/Zellenials/Pages/User/shopping-cart.php">Keranjang</a>
               </li>
@@ -68,16 +37,9 @@ Latest commit a783db9 last week
               <li class="nav-item">
               <a class="nav-link" href="#">Retur Pesanan</a>
               </li>
-            <?php endif; ?>
-            <?php if ($login) :?>
               <li class="nav-item" style="padding-top: 5px; padding-left: 10px;">
               <a href="#"><img src="/Zellenials/Assets/person-circle.png" alt="person-circle.png"></a>
               </li>
-            <?php else : ?>
-              <li class="nav-item">
-              <a class="nav-link" href="/Zellenials/Pages/User/my-order.php">Login</a>
-              </li>
-            <?php endif; ?>
         </ul>
         </div>
     </div>

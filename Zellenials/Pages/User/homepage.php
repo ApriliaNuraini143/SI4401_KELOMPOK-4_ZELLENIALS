@@ -14,37 +14,37 @@
     <header>
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #C5FF01;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/Zellenials/Pages/User/homepage.php" style="margin-left: 70px;"><b>Zellenials Company</b></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 70px;">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/Zellenials/Pages/User/homepage.php">Beranda</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/Zellenials/Pages/User/shopping-cart.php">Keranjang</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/Zellenials/Pages/User/shopping-order.php">Status Pesanan</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/Zellenials/Pages/User/my-order.php">Pesanan Saya</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/Zellenials/Pages/User/return-1.php">Retur Pesanan</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/Zellenials/Pages/User/tentangkami.php">Tentang Kami</a>
-            </li>
-            <li class="nav-item" style="padding-top: 5px; padding-left: 10px;">
-            <a href="#"><img src="/Zellenials/Assets/person-circle.png" alt="person-circle.png"></a>
-            </li>
-        </ul>
-        </div>
-    </div>
+      <div class="container-fluid">
+            <a class="navbar-brand" href="/Zellenials/Pages/User/homepage.php" style="margin-left: 70px;"><b>Zellenials Company</b></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 70px;">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../User/homepage.php">Beranda</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="../User/shopping-cart.php">Keranjang</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="../User/status-order.php">Status Pesanan</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="../User/my-order.php">Pesanan Saya</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="../User/return-1.php">Retur Pesanan</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="../User/tentangkami.php">Tentang Kami</a>
+                </li>
+                <li class="nav-item" style="padding-top: 5px; padding-left: 10px;">
+                <a href="../User/profile.php"><img src="/Zellenials/Assets/person-circle.png" alt="person-circle.png"></a>
+                </li>
+            </ul>
+          </div>
+      </div>
     </nav>
 
     </header>
@@ -87,37 +87,43 @@
       <h1 style="font-size: 86px;"><b>Supaya Kamu Tambah Kece!</b></h1>
     </div>
 
-    <div class="d-flex justify-content-center" style="margin-top: 75px;">
+    <div class="d-flex justify-content-center" style="margin-top: 75px; gap: 32px;">
+      <div class="card" style="width: 18rem;">
+        <img src="/Zellenials/Assets/card-img1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+          <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
+              <div class="card-body">
+                  <h5 class="card-title mb-3">Brainstorming</h5>
+                  <p class="card-text">You can't imagine what's tremendous world gonna be if we use 100% of our brain while brainstorming</p>
+                  <p class="card-text" style="font-weight: 700; color: green;">Rp 149.000</p>
+                  <button type="submit" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</button>
+              </div>
+          </form>
+      </div>
 
-    <div class="card" style="width: 18rem; margin-right: 30px;">
-      <img src="/Zellenials/Assets/card-img1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
-      <div class="card-body">
-        <p class="card-text">Brainstorming</p>
-        <p class="card-text">You can't imagine what's tremendous world gonna be if we use 100% of our brain while brainstorming</p>
-        <p class="card-text"><b>Rp 149.000</b></p>
+      <div class="card" style="width: 18rem;">
+        <img src="/Zellenials/Assets/card-img2.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+          <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
+              <div class="card-body">
+                  <h5 class="card-title mb-3">Money Take Control</h5>
+                  <p class="card-text">Whatever you want, whatever you need, money is the solution</p><br><br>
+                  <p class="card-text" style="font-weight: 700; color: green;">Rp 149.000</p>
+                  <button type="submit" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</button>
+              </div>
+          </form>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="/Zellenials/Assets/card-img3.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+          <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
+              <div class="card-body">
+                  <h5 class="card-title mb-3">Under Pressure</h5>
+                  <p class="card-text">Sometimes people need to be under pressure.</p><br><br>
+                  <p class="card-text" style="font-weight: 700; color: green;">Rp 149.000</p>
+                  <button type="submit" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</button>
+              </div>
+          </form>
       </div>
     </div>
-    
-    <div class="card" style="width: 18rem;">
-      <img src="/Zellenials/Assets/card-img2.png" class="card-img-top" alt="card-img2.png" style="max-height:256px; object-fit: cover;">
-      <div class="card-body">
-        <p class="card-text">Money Take Control</p>
-        <p class="card-text">Whatever you want, whatever you need, money is the solution</p>
-        <p class="card-text"><b>Rp 149.000</b></p>
-      </div>
-    </div>
-    
-    <div class="card" style="width: 18rem; margin-left: 30px;">
-      <img src="/Zellenials/Assets/card-img3.png" class="card-img-top" alt="card-img3.png" style="max-height:256px; object-fit: cover;">
-      <div class="card-body">
-        <p class="card-text">Under Pressure</p>
-        <p class="card-text">Sometimes people need to be under pressure</p>
-        <p class="card-text"><b>Rp 299.000</b></p>
-      </div>
-    </div>
-
-    </div>
-
 
     <!-- CARD -->
 
@@ -128,7 +134,7 @@
     </div>
 
     <div class="d-flex justify-content-center" style="margin-top: 50px;">
-      <a href="#" class="btn btn-outline-success btn-lg" style="--bs-btn-border-color: #C5FF01;
+      <a href="../User/custom-produk.php" class="btn btn-outline-success btn-lg" style="--bs-btn-border-color: #C5FF01;
       --bs-btn-hover-bg: #C5FF01;
       --bs-btn-color: #C5FF01;
       --bs-btn-hover-border-color: #C5FF01;
