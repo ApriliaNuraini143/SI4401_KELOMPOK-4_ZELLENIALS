@@ -25,8 +25,8 @@
 
         <!-- CONTENT -->
 
-        <div class="detail-container" style="background-color: white; width: 90%; padding: 20px; border-radius: 15px;
-        margin-left:auto; margin-right:auto; margin-top: 40px; display: flex;">
+        <div class="detail-container" style="background-color: white; width: 80%; padding: 20px; border-radius: 15px;
+        margin-left:auto; margin-right:auto; margin-top: 40px; display: flex; border: 8px solid #C5FF01">
 
             <!-- IMAGE CAROUSEL -->
 
@@ -128,7 +128,7 @@
                 <h5 style="color: #1f1f1f; margin-left: 40px; margin-top: 32px;">Harga</h5>
                 <h2 style="color: #1f1f1f; margin-left: 40px; font-weight: bold;">Rp. 149.000</h2>
 
-                <button type="submit" class="btn btn-primary" style="background-color: #c5ff01; border-color: #c5ff01; color: #1f1f1f; font-weight: bold; margin-left: 40px; margin-top: 32px; margin-bottom: 32px;">Beli Sekarang</button>
+                <button type="submit" class="btn btn-primary" style="background-color: #c5ff01; border-color: #c5ff01; color: #1f1f1f; font-weight: bold; margin-left: 40px; margin-top: 32px; margin-bottom: 16px;">Beli Sekarang</button>
                 </form>
             </div>
 

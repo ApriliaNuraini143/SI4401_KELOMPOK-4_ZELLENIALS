@@ -13,7 +13,9 @@
 
     <header>
 
-    <?php require 'C:\xampp\htdocs\Tubes WAD\SI4401_KELOMPOK-4_ZELLENIALS\Zellenials\Templates\navbar-old.php'; ?> <!-- help me with this -->
+      <?php require
+      '../../Templates/navbar-old.php';
+      ?> <!-- help me with this -->
 
     </header>
 
@@ -56,7 +58,7 @@
 
     <div class="d-flex justify-content-center" style="margin-top: 75px; gap: 32px;">
       <div class="card" style="width: 18rem;">
-        <img src="/Zellenials/Assets/card-img1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+        <img src="/Zellenials/Assets/card-img2.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
           <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
               <div class="card-body">
                   <h5 class="card-title mb-3">Brainstorming</h5>
@@ -68,7 +70,7 @@
       </div>
 
       <div class="card" style="width: 18rem;">
-        <img src="/Zellenials/Assets/card-img2.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+        <img src="/Zellenials/Assets/card-img1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
           <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
               <div class="card-body">
                   <h5 class="card-title mb-3">Money Take Control</h5>
