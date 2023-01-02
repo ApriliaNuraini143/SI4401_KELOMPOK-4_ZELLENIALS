@@ -19,6 +19,31 @@
 
     <!-- NAVBAR -->
 
+    <!-- CONTACT BUTTON -->
+
+    <style>
+      .act-btn {
+        background-color: #C5FF01;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        transition: ease all 0.3s;
+        position: fixed;
+        right: 70px;
+        bottom: 80px;
+      }
+    </style>
+
+    <a href="https://wa.me/+6285161254631" class="act-btn">
+      <img src="../../Assets/whatsapp-big.png" alt="contact-us" width="50px">
+    </a>
+
+    <!-- CONTACT BUTTON -->
+
     <!-- CONTENT -->
 
     <!-- CAROUSEL -->
@@ -26,13 +51,13 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/Zellenials/Assets/carousel-img1.png" class="d-block w-100" alt="carousel-img1.png" style="max-height: 800px;">
+          <img src="../../Assets/jumbotron/BR.png" class="d-block w-100" alt="image-caraousel1" style="max-height: 100%;">
         </div>
         <div class="carousel-item">
-          <img src="/Zellenials/Assets/carousel-img2.png" class="d-block w-100" alt="carousel-img1.png" style="max-height: 800px;">
+          <img src="../../Assets/jumbotron/MTC.png" class="d-block w-100" alt="image-caraousel2" style="max-height: 100%;">
         </div>
         <div class="carousel-item">
-          <img src="/Zellenials/Assets/carousel-img3.png" class="d-block w-100" alt="carousel-img1.png" style="max-height: 800px;">
+          <img src="../../Assets/jumbotron/UP.png" class="d-block w-100" alt="image-caraousel3" style="max-height: 800px;">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -56,7 +81,7 @@
 
     <div class="d-flex justify-content-center" style="margin-top: 75px; gap: 32px;">
       <div class="card" style="width: 18rem;">
-        <img src="/Zellenials/Assets/card-img2.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+        <img src="../../Assets/image/BR/BR1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
           <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
               <div class="card-body">
                   <h5 class="card-title mb-3">Brainstorming</h5>
@@ -68,7 +93,7 @@
       </div>
 
       <div class="card" style="width: 18rem;">
-        <img src="/Zellenials/Assets/card-img1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+        <img src="../../Assets/image/MTC/MTC1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
           <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
               <div class="card-body">
                   <h5 class="card-title mb-3">Money Take Control</h5>
@@ -80,7 +105,7 @@
       </div>
 
       <div class="card" style="width: 18rem;">
-        <img src="/Zellenials/Assets/card-img3.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+        <img src="../../Assets/image/UP/UP1.png" class="card-img-top" alt="BR1.png" style="max-height:256px; object-fit: cover;">
           <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
               <div class="card-body">
                   <h5 class="card-title mb-3">Under Pressure</h5>
