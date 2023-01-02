@@ -4,27 +4,30 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
+
+          <?php $page = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);?>
+
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 70px;">
                 <?php if (!$login) :?>
                   <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/Zellenials/Pages/User/homepage.php">Beranda</a>
+                  <a class="nav-link <?php if ($page == "homepage.php") echo "active" ?>" aria-current="page" href="../User/homepage.php">Beranda</a>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="/Zellenials/Pages/User/tentangkami.php">Tentang Kami</a>
+                  <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="../User/tentangkami.php">Tentang Kami</a>
                   </li>
                 <?php else : ?>
                   <li class="nav-item">
-                  <a class="nav-link" href="/Zellenials/Pages/User/shopping-cart.php">Keranjang</a>
+                  <a class="nav-link <?php if ($page == "shopping-cart.php") echo "active" ?>" href="../User/shopping-cart.php">Keranjang</a>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="/Zellenials/Pages/User/status-order.php">Status Pesanan</a>
+                  <a class="nav-link <?php if ($page == "status-order.php") echo "active" ?>" href="../User/status-order.php">Status Pesanan</a>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="/Zellenials/Pages/User/my-order.php">Pesanan Saya</a>
+                  <a class="nav-link <?php if ($page == "my-order.php") echo "active" ?>" href="../User/my-order.php">Pesanan Saya</a>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="/Zellenials/Pages/User/return-1.php">Retur Pesanan</a>
+                  <a class="nav-link <?php if ($page == "return-1.php") echo "active" ?>" href="../User/return-1.php">Retur Pesanan</a>
                   </li>
                 <?php endif; ?>
                 <?php if ($login) :?>
