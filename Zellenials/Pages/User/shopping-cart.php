@@ -84,7 +84,7 @@
       </div>
 
       <div class="checkout-btn" style="background-color: #1f1f1f; color: white; margin-top: auto; margin-bottom: auto; padding: 46px 60px 40.5px 5px; width: 20%;">
-      <a href="checkout-confirm.php" class="btn" style="--bs-btn-border-color: #C5FF01; width: 100%; border-radius: 8px;
+      <a href="checkout-page.php" class="btn" style="--bs-btn-border-color: #C5FF01; width: 100%; border-radius: 8px;
                     --bs-btn-bg: #C5FF01;
                     --bs-btn-hover-bg: #C5FF01;
                     --bs-btn-color: #000000;

@@ -51,12 +51,19 @@
                 <td>Rp 149.000</td>
                 <td>18-12-2022</td>
                 <td>ZLNS/1812/0001</td>
-                <td><button type="button" class="btn" style="--bs-btn-border-color: #C5FF01;
+                <td><a href="detail-product.php" class="btn" style="--bs-btn-border-color: #C5FF01; width: 80%; border-radius: 8px;
                     --bs-btn-bg: #C5FF01;
                     --bs-btn-hover-bg: #C5FF01;
                     --bs-btn-color: #000000;
                     --bs-btn-hover-border-color: #C5FF01;
-                    --bs-btn-border-radius: 0px;">Beli Lagi</button></td>
+                    --bs-btn-border-radius: 0px;"><b>Beli Lagi</b></a>
+                    
+                    <!--<button type="button" class="btn" style="--bs-btn-border-color: #C5FF01;
+                    --bs-btn-bg: #C5FF01;
+                    --bs-btn-hover-bg: #C5FF01;
+                    --bs-btn-color: #000000;
+                    --bs-btn-hover-border-color: #C5FF01;
+                    --bs-btn-border-radius: 0px;">Beli Lagi</button>--></td>
                 </tr>
                 <tr>
                 <th scope="row">2</th>
@@ -67,12 +74,18 @@
                 <td>Rp 149.000</td>
                 <td>18-12-2022</td>
                 <td>ZLNS/1812/0001</td>
-                <td><button type="button" class="btn" style="--bs-btn-border-color: #C5FF01;
+                <td><a href="detail-product.php" class="btn" style="--bs-btn-border-color: #C5FF01; width: 80%; border-radius: 8px;
                     --bs-btn-bg: #C5FF01;
                     --bs-btn-hover-bg: #C5FF01;
                     --bs-btn-color: #000000;
                     --bs-btn-hover-border-color: #C5FF01;
-                    --bs-btn-border-radius: 0px;">Beli Lagi</button></td>
+                    --bs-btn-border-radius: 0px;"><b>Beli Lagi</b></a>                  
+                    <!--<button href="detail-product.php" type="button" class="btn" style="--bs-btn-border-color: #C5FF01;
+                    --bs-btn-bg: #C5FF01;
+                    --bs-btn-hover-bg: #C5FF01;
+                    --bs-btn-color: #000000;
+                    --bs-btn-hover-border-color: #C5FF01;
+                    --bs-btn-border-radius: 0px;">Beli Lagi</button>--></td>
                 </tr>
             </tbody>
         </table>
