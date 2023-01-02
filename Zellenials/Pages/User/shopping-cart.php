@@ -28,7 +28,7 @@
     <div class="detail-container" style="background-color: white; width:90%; padding: 20px; border-radius: 15px;
     margin-left:auto; margin-right:auto; margin-top: 40px;">
         <table class="table">
-            <thead style="background-color: #C5FF01;">
+            <thead style="background-color: #C5FF01;" align="center">
                 <tr sty>
                 <th scope="col">#</th>
                 <th scope="col">Nama Produk</th>
@@ -39,7 +39,7 @@
                 <th scope="col">Aksi</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody align="center" style="align-items: center;">
                 <tr>
                 <th scope="row">1</th>
                 <td>Brainstorming - Article 2020</td>
@@ -68,22 +68,30 @@
                     --bs-btn-hover-border-color: #DC3545;
                     --bs-btn-border-radius: 0px;">Hapus</button></td>
                 </tr>
-                <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><b>Rp 298.000</b></td>
-                <td><a href="checkout-confirm.php" class="btn" style="--bs-btn-border-color: #C5FF01;
+            </tbody>
+        </table>
+    </div>
+
+    <div class="total-belanja" style="background-color: white; width:90%; height: 140px ; border-radius: 15px;
+    margin-left:auto; margin-right:auto; margin-top: 40px; display: flex; align-item: center; justify-items: center; border: 8px solid #C5FF01">
+      <div class="notes" style="width: 60%; margin-top: auto; margin-bottom: auto;" align="center">
+        <h3 style="font-size: 24px;">Periksa Kembali Pesanan Kamu Sebelum Melanjutkan ✅</h3>
+      </div>
+
+      <div class="total" style="background-color: #1f1f1f; color: white; margin-top: auto; margin-bottom: auto; padding: 16px; width: 30%;">
+        <h4 style="font-size: 24px; margin-left: 16px;">Total Belanjaan :</h4>
+        <h3 style="font-size: 40px; margin-left: 16px;">Rp. 298.000</h3>
+      </div>
+
+      <div class="checkout-btn" style="background-color: #1f1f1f; color: white; margin-top: auto; margin-bottom: auto; padding: 46px 60px 40.5px 5px; width: 20%;">
+      <a href="checkout-confirm.php" class="btn" style="--bs-btn-border-color: #C5FF01; width: 100%; border-radius: 8px;
                     --bs-btn-bg: #C5FF01;
                     --bs-btn-hover-bg: #C5FF01;
                     --bs-btn-color: #000000;
                     --bs-btn-hover-border-color: #C5FF01;
-                    --bs-btn-border-radius: 0px;"><b>Checkout</b></a></td>
-                </tr>
-            </tbody>
-        </table>
+                    --bs-btn-border-radius: 0px;"><b>Checkout</b></a>
+      </div>
+
     </div>
 
     <!-- CONTENT -->

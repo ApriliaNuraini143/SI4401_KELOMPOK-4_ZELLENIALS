@@ -80,7 +80,7 @@
     </div>
 
     <div class="d-flex justify-content-center" style="margin-top: 75px; gap: 32px;">
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
         <img src="../../Assets/image/BR/BR1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
           <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
               <div class="card-body">
@@ -92,7 +92,7 @@
           </form>
       </div>
 
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
         <img src="../../Assets/image/MTC/MTC1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
           <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
               <div class="card-body">
@@ -104,7 +104,7 @@
           </form>
       </div>
 
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
         <img src="../../Assets/image/UP/UP1.png" class="card-img-top" alt="BR1.png" style="max-height:256px; object-fit: cover;">
           <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
               <div class="card-body">

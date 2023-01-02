@@ -21,7 +21,7 @@
 
     <!-- CONTENT -->
     <div class="detail-container" style="background-color: white; width:fit-content; padding: 20px; border-radius: 15px;
-    margin-left:auto; margin-right:auto; margin-top: 160px;">
+    margin-left:auto; margin-right:auto; margin-top: 55px; border: 8px solid #C5FF01;">
 
     <div class="op-title" style="text-align: center; margin-top: 10px;">
       <h1 style="font-size: 48px;"><b>Pembayaran</b></h1>
