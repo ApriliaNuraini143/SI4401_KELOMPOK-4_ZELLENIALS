@@ -13,9 +13,7 @@
 
     <header>
 
-      <?php require
-      '../../Templates/navbar-old.php';
-      ?> <!-- help me with this -->
+      <?php require ('../../Templates/navbar-old.php');?>
 
     </header>
 
