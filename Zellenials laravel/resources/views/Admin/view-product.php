@@ -37,13 +37,13 @@
                     <li class="nav-item has-submenu" style="line-height: 32px; border-bottom: 1px solid black;">
                         <a class="nav-link" href="#" style="color: #1f1f1f;">Produk</a>
                         <ul class="submenu collapse">
-                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/add-product.php" style="color: #1f1f1f;">Tambahkan Produk</a></li>
-                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/edit-product.php" style="color: #1f1f1f;">Sunting Produk</a></li>
-                            <li><a class="nav-link" href="../Admin/view-product.php" style="color: #1f1f1f;">Lihat Produk</a> </li>
+                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="add-product" style="color: #1f1f1f;">Tambahkan Produk</a></li>
+                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="edit-product" style="color: #1f1f1f;">Sunting Produk</a></li>
+                            <li><a class="nav-link" href="view-product" style="color: #1f1f1f;">Lihat Produk</a> </li>
                         </ul>
                     </li>
                     <li class="nav-item" style="line-height: 32px; border-bottom: 1px solid black;">
-                        <a class="nav-link" href="#" style="color: #1f1f1f;">Custom Produk</a>
+                        <a class="nav-link" href="custom-product" style="color: #1f1f1f;">Custom Produk</a>
                     </li>
                 </ul>
             </nav>
