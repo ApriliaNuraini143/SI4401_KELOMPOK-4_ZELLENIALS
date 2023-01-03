@@ -11,23 +11,23 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 70px;">
             @if (session('loggedin',FALSE))
               <li class="nav-item">
-              <a class="nav-link <?php if ($page == "homepage.php") echo "active" ?>" aria-current="page" href="../User/homepage.php">Beranda</a>
+              <a class="nav-link <?php if ($page == "homepage.php") echo "active" ?>" aria-current="page" href="/">Beranda</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="../User/tentangkami.php">Tentang Kami</a>
+              <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="tentangkami">Tentang Kami</a>
               </li>
             @else
               <li class="nav-item">
-              <a class="nav-link <?php if ($page == "shopping-cart.php") echo "active" ?>" href="../User/shopping-cart.php">Keranjang</a>
+              <a class="nav-link <?php if ($page == "shopping-cart.php") echo "active" ?>" href="keranjang">Keranjang</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link <?php if ($page == "status-order.php") echo "active" ?>" href="../User/status-order.php">Status Pesanan</a>
+              <a class="nav-link <?php if ($page == "status-order.php") echo "active" ?>" href="status-pesanan">Status Pesanan</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link <?php if ($page == "my-order.php") echo "active" ?>" href="../User/my-order.php">Pesanan Saya</a>
+              <a class="nav-link <?php if ($page == "my-order.php") echo "active" ?>" href="my-order">Pesanan Saya</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link <?php if ($page == "return-1.php") echo "active" ?>" href="../User/return-1.php">Retur Pesanan</a>
+              <a class="nav-link <?php if ($page == "return-1.php") echo "active" ?>" href="retur-1">Retur Pesanan</a>
               </li>
             @endif
             @if (session('loggedin',FALSE))

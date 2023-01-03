@@ -39,3 +39,7 @@ Route::get('login', function () {
 Route::get('register', function () {
     return view('user.registrasi');
 });
+
+Route::get('keranjang', function () {
+    return view('user.shopping-cart');
+});
