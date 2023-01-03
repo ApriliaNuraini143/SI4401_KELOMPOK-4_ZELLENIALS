@@ -22,42 +22,57 @@
         </div>
     </nav>
 
-    <div class="container-fluid" style="color:#ffffff">
-    <div class="row">
-        <div class="col-md-6 align-self-center" >
-        <br>
-<h1 style="text-align:left; font-size: 60px; margin-left:40px; margin-top:50px">Temukan Baju Favorit Mu Disini</h2>
-        </div>
-        <div class="col-md-6 align-self-end p-5" style="margin-top:100px; padding-left: 50px; padding-right: 50px;">
-            <div style="background-color: #1f1f1f;">
-                <div class="card-body">
-                    <h2 class="mb-4">Daftar Yuk</h2>
-                    <form action="" method="post">
-                        <div class="form-group mb-3">
-                            <label for="email" class="mb-2">Nama</label>
-                            <input type="text" name="email" class="form-control">
+    <!-- NAVBAR -->
+    
+    <!-- CONTENT -->
+
+    <div class="content" style="background-color: #1f1f1f; margin: 80px; height: 620px; border: 8px solid #C5FF01; border-radius: 15px">
+        <div class="container-fluid" style="color:#ffffff">
+            <div class="row">
+                <div class="col-md-6 align-self-center" >
+                    <br>
+                    <h1 style="text-align:left; font-weight: bolder; font-size: 72px; margin-left: 80px;">Temukan Baju<br>Favorit Mu Disini!</h2>
+                </div>
+                <div class="col-md-6 align-self-end p-5" style="margin-top:20px; margin-right: 0px;">
+                    <div style="background-color: #1f1f1f;">
+                        <div class="card-body">
+                            <h2 class="mb-4">Daftar Yuk</h2>
+                            <form action="" method="post">
+                                <div class="form-group mb-3">
+                                    <label for="email" class="mb-2">Nama</label>
+                                    <input type="text" name="email" class="form-control">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="email" class="mb-2">Email</label>
+                                    <input type="text" name="email" class="form-control">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="password" class="mb-2">Password</label>
+                                    <input type="password" name="password" class="form-control">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="password" class="mb-2">Konfirmasi Password</label>
+                                    <input type="password" name="password" class="form-control">
+                                </div>
+
+                                <div class="form-group mb-3" style="display: flex; gap: 24px; align-items: center;">
+                                    <div class="button">
+                                        <button class="btn mt-2 btn-primary px-4" link rel="stylesheet" href="../Zellenials/Pages/User/Login.php" style="background-color:#C5FF01; border-color: #C5FF01; color: black; font-weight: bolder;" name="daftar">Daftar</button>
+                                    </div>
+
+                                    <div class="register-btn mt-4">
+                                        <p>Sudah Punya Akun? <a href="../User/Login.php" style="color: white;">Yuk Masuk!</a></p>
+                                    </div>
+                                </div>
+
+                            </form>
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="email" class="mb-2">Email</label>
-                            <input type="text" name="email" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="password" class="mb-2">Password</label>
-                            <input type="password" name="password" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="password" class="mb-2">Konfirmasi Password</label>
-                            <input type="password" name="password" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <button class="btn mt-2 btn-primary px-4" style="background-color:#C5FF01; border-color: #C5FF01; color: black; font-weight: bolder;" href="../Zellenials/Pages/User/Login.php" name="register">Daftar</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>  
+
     <!-- CONTENT -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
