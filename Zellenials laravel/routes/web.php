@@ -37,5 +37,5 @@ Route::get('login', function () {
 });
 
 Route::get('register', function () {
-    return view('user.register');
+    return view('user.registrasi');
 });

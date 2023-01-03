@@ -54,7 +54,7 @@
                                     </div>
 
                                     <div class="register-btn mt-4">
-                                        <p>Belum Punya Akun? <a href="../User/Registrasi.php" style="color: white;">Yuk Daftar!</a></p>
+                                        <p>Belum Punya Akun? <a href="register" style="color: white;">Yuk Daftar!</a></p>
                                     </div>
                                 </div>
                                 

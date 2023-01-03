@@ -61,7 +61,7 @@
                                     </div>
 
                                     <div class="register-btn mt-4">
-                                        <p>Sudah Punya Akun? <a href="../User/Login.php" style="color: white;">Yuk Masuk!</a></p>
+                                        <p>Sudah Punya Akun? <a href="login" style="color: white;">Yuk Masuk!</a></p>
                                     </div>
                                 </div>
 
