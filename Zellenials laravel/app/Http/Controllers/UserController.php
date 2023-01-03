@@ -9,4 +9,8 @@ class UserController extends Controller
     public function index(){
         return view('User.homepage');
     }
+
+    public function keranjang(){
+        return view('User.shopping-cart');
+    }
 }

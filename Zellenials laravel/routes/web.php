@@ -43,3 +43,5 @@ Route::get('register', function () {
 Route::get('keranjang', function () {
     return view('user.shopping-cart');
 });
+
+#Route::get('keranjang', [UserController::class, 'keranjang'])->name('shopping-cart');
