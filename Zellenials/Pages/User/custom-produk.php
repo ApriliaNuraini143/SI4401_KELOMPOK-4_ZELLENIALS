@@ -16,10 +16,13 @@
     <?php require ('../../Templates/navbar-old.php');?>
 
     </header>
+
     <!-- NAVBAR -->
+
     <!-- CONTENT -->
-    <div class="detail-container" style="background-color: white; width:fit-content; padding: 20px; border-radius: 15px;
-    margin-left:auto; margin-right:auto; margin-top: 140px;">
+
+    <div class="detail-container" style="background-color: white; width: 80%; padding: 20px; border-radius: 15px;
+    margin-left:auto; margin-right:auto; margin-top: 55px; border: 8px solid #C5FF01;">
         <table>
             <tr>
                 <th rowspan="12"><img src="/Zellenials/Assets/card-img1.png" alt="card-img1.png" style="width: 400px; display:block;"></th>
@@ -37,34 +40,37 @@
             <tr>
                 <td style="padding-top:20px; font-size: 24px;"><b></b></td>
             </tr>
+
             <tr>
                 <td>
-                <label for="exampleInputEmail1" class="form-label"><b>Email address</b></label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <label for="exampleInputEmail1" class="form-label"><b>Email address</b></label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </td>
             </tr>
+
             <tr>
                 <td>
-                <label for="exampleInputEmail1" class="form-label"><b>Tambahkan Desain</b></label>
-                <div class="input-group mb-3">
-  <input type="file" class="form-control" id="inputGroupFile02">
-  <label class="input-group-text" for="inputGroupFile02">Upload</label>
-</div>
+                  <label for="exampleInputEmail1" class="form-label"><b>Tambahkan Desain</b></label>
+                  <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="inputGroupFile02">
+                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                  </div>
                 </td>
             </tr>
+
             <tr>
                 <td>
-                <label for="exampleInputEmail1" class="form-label"><b>Pilih Panjang Lengan</b></label>
-                <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-    Pilih Panjang Lengan
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <li><button class="dropdown-item" type="button">Action</button></li>
-    <li><button class="dropdown-item" type="button">Another action</button></li>
-    <li><button class="dropdown-item" type="button">Something else here</button></li>
-  </ul>
-</div>
+                  <label for="exampleInputEmail1" class="form-label"><b>Pilih Panjang Lengan</b></label>
+                  <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Pilih Panjang Lengan
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><button class="dropdown-item" type="button">Another action</button></li>
+                      <li><button class="dropdown-item" type="button">Something else here</button></li>
+                      <li><button class="dropdown-item" type="button">Action</button></li>
+                    </ul>
+                  </div>
                 </td>
             </tr>
             <tr>
@@ -77,9 +83,9 @@
                 <td>
                 <label for="exampleInputEmail1" class="form-label">Berat Badan</label>
                 <div class="input-group mb-3">
-  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-  <span class="input-group-text">Kg</span>
-</div>
+                  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <span class="input-group-text">Kg</span>
+                </div>
                 </td>
                 <td>
                 <label for="exampleInputEmail1" class="form-label">Tinggi Badan</label>

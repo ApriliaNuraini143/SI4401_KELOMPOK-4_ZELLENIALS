@@ -126,7 +126,7 @@
     </div>
 
     <div class="d-flex justify-content-center" style="margin-top: 50px;">
-      <a href="../User/custom-produk.php" class="btn btn-outline-success btn-lg" style="--bs-btn-border-color: #C5FF01;
+      <a href="../User/custom-product.php" class="btn btn-outline-success btn-lg" style="--bs-btn-border-color: #C5FF01;
       --bs-btn-hover-bg: #C5FF01;
       --bs-btn-color: #C5FF01;
       --bs-btn-hover-border-color: #C5FF01;
