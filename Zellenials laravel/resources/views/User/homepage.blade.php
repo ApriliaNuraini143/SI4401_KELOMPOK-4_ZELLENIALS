@@ -1,5 +1,6 @@
 @extends('layout.layout')
 @include('layout.navbar')
+
 @section('content')
 
   <style>
@@ -20,7 +21,7 @@
   </style>
 
   <a href="https://wa.me/+6285161254631" class="act-btn">
-    <img src="{{asset('storage/Assets/whatsapp-big.png')}}" alt="contact-us" width="50px">
+    <img src="{{asset('img/whatsapp-big.png')}}" alt="contact-us" width="50px">
   </a>
 
   <!-- CONTACT BUTTON -->

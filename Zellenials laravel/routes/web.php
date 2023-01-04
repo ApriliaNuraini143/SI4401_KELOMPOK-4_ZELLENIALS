@@ -40,6 +40,10 @@ Route::get('keranjang', function () {
     return view('user.shopping-cart');
 });
 
+Route::get('tentangkami', function () {
+    return view('user.tentangkami');
+});
+
 Route::get('/login', [UserController::class, 'login'])->name('login');
 
 Route::post('/login/logins', [UserController::class, 'get'])->name('logins');
