@@ -18,32 +18,35 @@
 
     <!-- CONTENT -->
 
-    <div class="content" style="color: white; width: 90%; padding: 20px; border-radius: 15px;
-        margin-left:auto; margin-right:auto; margin-top: 40px;">
-      <div class="sub-content" style="color: white;">
+    <div class="container" style="display: flex; align-items: center;">
+    
+      <div class="content" style="color: white; width: 100%; border-radius: 15px; margin-top: 40px;">
+        <div class="sub-content" style="color: white;">
 
-        <div class="op-title" style="text-align: left; color:white; margin-top: 50px;">
-          <h1 style="font-size: 48px;"><b>Profile</b></h1>
+          <div class="op-title" style="text-align: left; color:white; margin-top: 50px;">
+            <h1 style="font-size: 48px;"><b>Profile</b></h1>
+          </div>
+
+          <form action="edit_profile.php">    
+            <div class="col-12 mt-4">
+              <label for="exampleInputEmail1" class="form-label">Nama Pengguna</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" value="Masukkan Nama Anda">
+            </div>
+            <div class="col-12 mt-3">
+              <label for="exampleInputEmail1" class="form-label">Alamat E-mail</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="yourname@gmail.com">
+            </div>
+            <div class="col-12 mt-3">
+              <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" value="********">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary mt-3" style="width: 100px; background-color: #C5FF01; border-color: #C5FF01; color: #1f1f1f;"><b>Simpan</b></button>
+          </form>
+
         </div>
-
-        <form>    
-          <div class="col-8 mt-4">
-            <label for="exampleInputEmail1" class="form-label">Nama Pengguna</label>
-            <input type="text" class="form-control" id="exampleInputEmail1">
-          </div>
-          <div class="col-8 mt-3">
-            <label for="exampleInputEmail1" class="form-label">Alamat E-mail</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-          <div class="col-8 mt-3">
-            <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-        <br>
-          <button type="submit" class="btn btn-primary">Edit</button>
-        </form>
-
       </div>
+
     </div>
 
 </body>
