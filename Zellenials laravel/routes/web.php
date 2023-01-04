@@ -32,10 +32,6 @@ Route::get('custom-product', function () {
     return view('admin.custom-product');
 });
 
-Route::get('login', function () {
-    return view('user.login');
-});
-
 Route::get('register', function () {
     return view('user.registrasi');
 });
@@ -43,5 +39,15 @@ Route::get('register', function () {
 Route::get('keranjang', function () {
     return view('user.shopping-cart');
 });
+
+Route::get('/login', [UserController::class, 'login'])->name('login');
+
+Route::post('/login/logins', [UserController::class, 'get'])->name('logins');
+
+Route::get('/register', [UserController::class, 'register'])->name('register');
+
+Route::post('/register/create', [UserController::class, 'create'])->name('create');
+
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 #Route::get('keranjang', [UserController::class, 'keranjang'])->name('shopping-cart');
