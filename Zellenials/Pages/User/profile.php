@@ -30,18 +30,18 @@
           <form action="edit_profile.php">    
             <div class="col-12 mt-4">
               <label for="exampleInputEmail1" class="form-label">Nama Pengguna</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" value="Masukkan Nama Anda">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Nama Anda">
             </div>
             <div class="col-12 mt-3">
               <label for="exampleInputEmail1" class="form-label">Alamat E-mail</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="yourname@gmail.com">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="yourname@gmail.com">
             </div>
             <div class="col-12 mt-3">
               <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" value="********">
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="********">
             </div>
             <br>
-            <button type="submit" class="btn btn-primary mt-3" style="width: 100px; background-color: #C5FF01; border-color: #C5FF01; color: #1f1f1f;"><b>Simpan</b></button>
+            <button type="submit" class="btn btn-primary mt-3" style="width: 100px; background-color: #C5FF01; border-color: #C5FF01; color: #1f1f1f;"><b>Edit</b></button>
           </form>
 
         </div>
