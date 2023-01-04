@@ -27,42 +27,51 @@
             <!-- CARD -->
 
             <div class="contentSection" style="height: 100vh;">
-            <div class="title">
-                <h1 style="color: white; margin: 56px 40px;">View Catalog</h1>
+                <div class="title">
+                    <h1 style="color: white; margin: 56px 40px;">View Product</h1>
+                </div>
+
+                <div class="content" style="display: flex;">
+
+                    <div class="d-flex justify-content-center" style="margin-left: 40px; gap: 32px;">
+                        <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
+                            <img src="../../Assets/image/BR/BR1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+                            <form action="../Admin/edit-product.php" method="POST" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Brainstorming</h5>
+                                    <p class="card-text">You can't imagine what's tremendous world gonna be if we use 100% of our brain while brainstorming</p>
+                                    <p class="card-text" style="font-weight: 700; color: green;">Rp 149.000</p>
+                                    <button type="submit" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
+                            <img src="../../Assets/image/MTC/MTC1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+                            <form action="../Admin/edit-product.php" method="POST" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Money Take Control</h5>
+                                    <p class="card-text">Whatever you want, whatever you need, money is the solution</p><br><br>
+                                    <p class="card-text" style="font-weight: 700; color: green;">Rp 149.000</p>
+                                    <button type="submit" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
+                            <img src="../../Assets/image/UP/UP1.png" class="card-img-top" alt="BR1.png" style="max-height:256px; object-fit: cover;">
+                            <form action="../Admin/edit-product.php" method="POST" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Under Pressure</h5>
+                                    <p class="card-text">Sometimes people need to be under pressure.</p><br><br>
+                                    <p class="card-text" style="font-weight: 700; color: green;">Rp 149.000</p>
+                                    <button type="submit" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</button>
+                                </div>
+                            </form>
+                        </div>
+                </div>
+
             </div>
-
-            <div class="content" style="display: flex;">
-
-                <div class="d-flex justify-content-center" style="margin-top: 20px; margin-left: 30px; ">
-
-                <div class="card" style="width: 18rem; margin-right: 30px;">
-                <img src="/Zellenials/Assets/card-img1.png" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
-                <div class="card-body">
-                    <p class="card-text">Brainstorming</p>
-                    <p class="card-text">You can't imagine what's tremendous world gonna be if we use 100% of our brain while brainstorming</p>
-                    <p class="card-text"><b>Rp 149.000</b></p>
-                </div>
-                </div>
-                
-                <div class="card" style="width: 18rem;">
-                <img src="/Zellenials/Assets/card-img2.png" class="card-img-top" alt="card-img2.png" style="max-height:256px; object-fit: cover;">
-                <div class="card-body">
-                    <p class="card-text">Money Take Control</p>
-                    <p class="card-text">Whatever you want, whatever you need, money is the solution</p>
-                    <p class="card-text"><b>Rp 149.000</b></p>
-                </div>
-                </div>
-                
-                <div class="card" style="width: 18rem; margin-left: 30px;">
-                <img src="/Zellenials/Assets/card-img3.png" class="card-img-top" alt="card-img3.png" style="max-height:256px; object-fit: cover;">
-                <div class="card-body">
-                    <p class="card-text">Under Pressure</p>
-                    <p class="card-text">Sometimes people need to be under pressure</p>
-                    <p class="card-text"><b>Rp 299.000</b></p>
-                </div>
-                </div>
-
-                </div>
 
 
     <!-- CARD -->
