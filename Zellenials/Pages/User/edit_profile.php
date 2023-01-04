@@ -26,7 +26,7 @@
             <h1 style="font-size: 48px;"><b>Profile</b></h1>
           </div>
 
-          <form action="edit_profile.php">    
+          <form action="profile.php">    
             <div class="col-12 mt-4">
               <label for="exampleInputEmail1" class="form-label">Nama Pengguna</label>
               <input type="text" class="form-control" id="exampleInputEmail1" value="Masukkan Nama Anda">
