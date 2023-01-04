@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script src="https://kit.fontawesome.com/jquery-3.4.1.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <title>Admin - Custom Produk</title>
     </head>
@@ -14,71 +15,11 @@
 
         <!-- SIDEBAR -->
 
-        <style>
-        .nav{
-            background: #c5ff01;
-        }
-        .sidebar li .submenu{ 
-            list-style: none; 
-            margin: 0; 
-        }
-        </style>
+        <header>
 
-        <div class="sideBarSection" style="font-weight:600;">
-            <nav class="sidebar card py-2 mb-4" style="position: retalive; width: 232px; height: 880px; left:0; background: #c5ff01;">
-                <div class="logo">
-                    <img src="/Zellenials/Assets/favicon.ico" style="margin: 46px 72px 40px 72px; width: 74px; border-radius: 100%;">
-                </div>
+            <?php require ('../../Templates/sidebar.php');?>
 
-                <ul class="nav flex-column" id="nav_accordion" style="list-style: none; margin-left: 10px;">
-                    <li class="nav-item" style="line-height: 32px; border-bottom: 1px solid black;">
-                        <a class="nav-link" href="../Admin/dashboard.php" style="color: #1f1f1f;">Dashboard</a>
-                    </li>
-                    <li class="nav-item has-submenu" style="line-height: 32px; border-bottom: 1px solid black;">
-                        <a class="nav-link" href="#" style="color: #1f1f1f;">Produk</a>
-                        <ul class="submenu collapse">
-                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/add-product.php" style="color: #1f1f1f;">Tambahkan Produk</a></li>
-                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/edit-product.php" style="color: #1f1f1f;">Sunting Produk</a></li>
-                            <li><a class="nav-link" href="../Admin/view-product.php" style="color: #1f1f1f;">Lihat Produk</a> </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item" style="line-height: 32px; border-bottom: 1px solid black;">
-                        <a class="nav-link" href="../Admin/custom-product.php" style="color: #1f1f1f;">Custom Produk</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <script>
-        document.addEventListener("DOMContentLoaded", function(){
-        document.querySelectorAll('.sidebar .nav-link').forEach(function(element){
-            
-            element.addEventListener('click', function (e) {
-
-            let nextEl = element.nextElementSibling;
-            let parentEl  = element.parentElement;	
-
-                if(nextEl) {
-                    e.preventDefault();	
-                    let mycollapse = new bootstrap.Collapse(nextEl);
-                    
-                    if(nextEl.classList.contains('show')){
-                    mycollapse.hide();
-                    } else {
-                        mycollapse.show();
-                        // find other submenus with class=show
-                        var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
-                        // if it exists, then close all of them
-                        if(opened_submenu){
-                        new bootstrap.Collapse(opened_submenu);
-                        }
-                    }
-                }
-            }); // addEventListener
-        }) // forEach
-        }); 
-        // DOMContentLoaded  end
-        </script>
+        </header>
 
         <!-- SIDEBAR -->
 
@@ -91,7 +32,7 @@
 
         <!-- TABEL CUSTOM -->
 
-            <div class="detail-container" style="background-color: white; width: 1200px; padding: 20px; border-radius: 15px;
+            <div class="detail-container" style="background-color: white; width: 1370px; padding: 20px; border-radius: 15px;
             margin-left:40px; margin-right:20px; margin-top: 40px;">
                 <table class="table">
                     <thead style="background-color: #C5FF01;" align="center">
@@ -117,7 +58,7 @@
                         <td><button type="submit" class="btn btn-primary"
                         style="margin-top: 0px; background-color: green;
                         border-color: green; color: white; font-weight: bold;">Download Gambar</button></td>
-                        <td><button type="submit" class="btn btn-primary"
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
                         style="margin-top: 0px; background-color: blue;
                         border-color: blue; color: white; font-weight: 400;">Edit</button>
                         <button type="submit" class="btn btn-primary"
@@ -135,7 +76,7 @@
                         <td><button type="submit" class="btn btn-primary"
                         style="margin-top: 0px; background-color: green;
                         border-color: green; color: white; font-weight: bold;">Download Gambar</button></td>
-                        <td><button type="submit" class="btn btn-primary"
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
                         style="margin-top: 0px; background-color: blue;
                         border-color: blue; color: white; font-weight: 400;">Edit</button>
                         <button type="submit" class="btn btn-primary"
@@ -146,12 +87,51 @@
                 </table>
             </div>
         </div>
-      
+
+        <!-- MODAL -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="inputImg">
+                        <p style="margin-bottom: 0.5rem;">Desain Admin</p>
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Status</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="0" selected>Waiting for Admin</option>
+                            <option value="1">Waiting for Client Approval</option>
+                            <option value="2">Client Approved</option>
+                            <option value="3">On Process</option>
+                            <option value="4">Delivered</option>
+                            <option value="5">Completed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
         <!-- CONTENT -->
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    </body>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </body>
     
 </html>

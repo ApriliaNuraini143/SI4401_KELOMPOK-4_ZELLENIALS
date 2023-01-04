@@ -14,71 +14,11 @@
 
         <!-- SIDEBAR -->
 
-        <style>
-        .nav{
-            background: #c5ff01;
-        }
-        .sidebar li .submenu{ 
-            list-style: none; 
-            margin: 0; 
-        }
-        </style>
+        <header>
 
-        <div class="sideBarSection" style="font-weight:600;">
-            <nav class="sidebar card py-2 mb-4" style="position: retalive; width: 232px; height: 880px; left:0; background: #c5ff01;">
-                <div class="logo">
-                    <img src="/Zellenials/Assets/favicon.ico" style="margin: 46px 72px 40px 72px; width: 74px; border-radius: 100%;">
-                </div>
+            <?php require ('../../Templates/sidebar.php');?>
 
-                <ul class="nav flex-column" id="nav_accordion" style="list-style: none; margin-left: 10px;">
-                    <li class="nav-item" style="line-height: 32px; border-bottom: 1px solid black;">
-                        <a class="nav-link" href="../Admin/dashboard.php" style="color: #1f1f1f;">Dashboard</a>
-                    </li>
-                    <li class="nav-item has-submenu" style="line-height: 32px; border-bottom: 1px solid black;">
-                        <a class="nav-link" href="#" style="color: #1f1f1f;">Produk</a>
-                        <ul class="submenu collapse">
-                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/add-product.php" style="color: #1f1f1f;">Tambahkan Produk</a></li>
-                            <li style="line-height: 32px; border-bottom: 1px solid black;"><a class="nav-link" href="../Admin/edit-product.php" style="color: #1f1f1f;">Sunting Produk</a></li>
-                            <li><a class="nav-link" href="../Admin/view-product.php" style="color: #1f1f1f;">Lihat Produk</a> </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item" style="line-height: 32px; border-bottom: 1px solid black;">
-                        <a class="nav-link" href="../Admin/custom-product.php" style="color: #1f1f1f;">Custom Produk</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <script>
-        document.addEventListener("DOMContentLoaded", function(){
-        document.querySelectorAll('.sidebar .nav-link').forEach(function(element){
-            
-            element.addEventListener('click', function (e) {
-
-            let nextEl = element.nextElementSibling;
-            let parentEl  = element.parentElement;	
-
-                if(nextEl) {
-                    e.preventDefault();	
-                    let mycollapse = new bootstrap.Collapse(nextEl);
-                    
-                    if(nextEl.classList.contains('show')){
-                    mycollapse.hide();
-                    } else {
-                        mycollapse.show();
-                        // find other submenus with class=show
-                        var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
-                        // if it exists, then close all of them
-                        if(opened_submenu){
-                        new bootstrap.Collapse(opened_submenu);
-                        }
-                    }
-                }
-            }); // addEventListener
-        }) // forEach
-        }); 
-        // DOMContentLoaded  end
-        </script>
+        </header>
 
         <!-- SIDEBAR -->
 
@@ -94,26 +34,7 @@
                 <!-- IMAGE CAROUSEL -->
 
                 <div class="imageContainer" style="margin-left: 40px;">
-                    <div id="carouselExampleIndicators" class="carousel slide">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner" style="max-width: 300px; border-radius: 16px">
-                            <div class="carousel-item active">
-                                <img src="/Zellenials/Assets/card-img1.png" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+                   <img src="../../Assets/image/BR/BR1.png" class="d-block w-100" alt="..." style="max-width: 300px; border-radius: 16px">
                 </div>
 
                 <!-- IMAGE CAROUSEL -->
