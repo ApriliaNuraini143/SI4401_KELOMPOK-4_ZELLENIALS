@@ -10,6 +10,7 @@
   <body style="background-color: #1f1f1f;">
     
     <!-- NAVBAR -->
+
     <header>
       
     <?php require ('../../Templates/navbar-old.php');?>
@@ -43,6 +44,8 @@
             <br>
             <button type="submit" class="btn btn-primary mt-3" style="width: 100px; background-color: #C5FF01; border-color: #C5FF01; color: #1f1f1f;"><b>Edit</b></button>
           </form>
+
+          <a href="../../config/logout.php" class="btn btn-primary mt-3" style="width: 100px; background-color: Red; border-color: Red; color: White;"><b>Log Out</b></a>
 
         </div>
       </div>
