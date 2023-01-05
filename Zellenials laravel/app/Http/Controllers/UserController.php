@@ -62,22 +62,25 @@ class UserController extends Controller
         if($u) return redirect()->route('register')->with('email-exist','email must be unique');
         if($request->password != $request->password1) return redirect()->route('register')->with('password-not-match','please try again');
         $user = new user;
-        $user->nama_user = $request->nama;
+        $user->nama_user = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
-        return redirect()->route('login')->with('regist-success','Berhasil daftar');
+        return redirect()->route('login');
     }
 
     public function get(Request $request){
         $u = DB::table('users')->where('email',$request->email)->first();
-        if ($u->password == $request->password) {
+        if ($u && $u->password == $request->password) {
             session(['loggedin' => TRUE]);
             session(['uid' => $u->id]);
-            session(['nama' => $u->nama_user]);
+            session(['name' => $u->nama_user]);
+            session(['email' => $u->email]);
+            session(['admin' => $u->admin]);
             if($request->remember){
                 Cookie::queue('email',$u->email,1440);
                 Cookie::queue('password',$u->password,1440);
+                Cookie::queue('remember',TRUE,1440);
             }
             return redirect()->route('home')->with('login-success','Berhasil login');
         }else{

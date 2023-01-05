@@ -17,12 +17,17 @@
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="email" class="mb-2">Email</label>
-                                <input type="text" name="email" class="form-control">
+                                <input type="text" name="email" class="form-control" @if ($data['remember']) {{"value=".$data['email']}} @endif>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="password" class="mb-2">Password</label>
-                                <input type="password" name="password" class="form-control required">
+                                <input type="password" name="password" class="form-control required"  @if ($data['remember']) {{'value='.$data['password']}} @endif>
                             </div>
+                            <div class="form-group mb-3">
+                                <label for="password" class="mb-2 form-check-label">Remember Me</label>
+                                <input type="checkbox" name="remember" class="form-control form-check-input" @checked($data['remember'])>
+                            </div>
+
                             <div class="form-group mb-3" style="display: flex; gap: 24px; align-items: center;">
                                 <div class="button">
                                     <button class="btn mt-2 btn-primary px-4" link rel="stylesheet" href="../Zellenials/Pages/User/homepage.php" style="background-color:#C5FF01; border-color: #C5FF01; color: black; font-weight: bolder;" name="login">Login</button>

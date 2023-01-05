@@ -18,7 +18,7 @@
                         @csrf
                             <div class="form-group mb-3">
                                 <label for="email" class="mb-2">Nama</label>
-                                <input type="text" name="nama" class="form-control">
+                                <input type="text" name="name" class="form-control">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="email" class="mb-2">Email</label>
