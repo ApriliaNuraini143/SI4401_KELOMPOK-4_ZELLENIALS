@@ -22,6 +22,11 @@ class UserController extends Controller
             return redirect()->route('login');
         }
     }
+
+    public function aboutUs(){
+        return view('User.tentangkami');
+    }
+
     public function profil(){
         if (session('loggedin',FALSE)){
             return view('User.profile');
@@ -34,6 +39,29 @@ class UserController extends Controller
         $user = User::find(session('uid'));
         return view('User.edit_profile',compact('user'));
     }
+
+    public function register(){
+        if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
+        return view('User.Registrasi');
+    }
+
+    public function keranjang(){
+        return view('User.shopping-cart');
+    }
+
+    public function statusPesanan(){
+        return view('User.status-order');
+    }
+
+    public function pesananSaya(){
+        return view('User.my-order');
+    }
+
+    public function retur1(){
+        return view('User.return-1');
+    }
+
+    #Batas Page
 
     public function login(Request $request){
         if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
@@ -52,11 +80,6 @@ class UserController extends Controller
         return view('User.Login',compact('data'));
     }
 
-    public function register(){
-        if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
-        return view('User.Registrasi');
-    }
-
     public function create(Request $request){
         $u = DB::table('users')->where('email',$request->email)->first();
         if($u) return redirect()->route('register')->with('email-exist','email must be unique');
@@ -69,7 +92,7 @@ class UserController extends Controller
         return redirect()->route('login');
     }
 
-    public function get(Request $request){
+    public function loginget(Request $request){
         $u = DB::table('users')->where('email',$request->email)->first();
         if ($u && $u->password == $request->password) {
             session(['loggedin' => TRUE]);

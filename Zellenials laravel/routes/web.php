@@ -32,20 +32,8 @@ Route::get('custom-product', function () {
     return view('admin.custom-product');
 });
 
-Route::get('register', function () {
-    return view('user.registrasi');
-});
-
-Route::get('keranjang', function () {
-    return view('user.shopping-cart');
-});
-
-Route::get('tentangkami', function () {
-    return view('user.tentangkami');
-});
-
 Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/login/logins', [UserController::class, 'get'])->name('logins');
+Route::post('/login/logins', [UserController::class, 'loginget'])->name('logins');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register/create', [UserController::class, 'create'])->name('create');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
@@ -54,5 +42,12 @@ Route::get('/custom', [UserController::class, 'custom'])->name('custom');
 Route::get('/profil', [UserController::class, 'profil'])->name('profil');
 Route::get('/profil/edit}', [UserController::class, 'profileEdit'])->name('editprofil');
 Route::post('/profil/update}', [UserController::class, 'updateProfile'])->name('updateProfile');
+
+Route::get('/keranjang', [UserController::class, 'keranjang'])->name('keranjang');
+Route::get('/about-us', [UserController::class, 'aboutUs'])->name('about');
+Route::get('/status-pesanan', [UserController::class, 'statusPesanan'])->name('status-pesanan');
+Route::get('/pesanan-saya', [UserController::class, 'pesananSaya'])->name('pesanan-saya');
+Route::get('/retur1', [UserController::class, 'retur1'])->name('retur1');
+
 
 #Route::get('keranjang', [UserController::class, 'keranjang'])->name('shopping-cart');

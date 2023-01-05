@@ -9,7 +9,8 @@
 <body style="background-color: #1f1f1f;">
     @yield('content')
     <footer>
-        <div class="d-flex" style="background-color: #C5FF01; margin-top:200px; padding-left: 70px; padding-right: 70px;">
+          <div class="" style="margin-top:50vh;">
+          <div class="d-flex" style="background-color: #C5FF01; margin-top:200px; padding-left: 70px; padding-right: 70px;">
             <div class="p-3">
               <ul class="list-group-border-width: 0px;" style="padding-top: 20px;">
               <li class="list-group-item"><b>Zellenials Company</b></li>
