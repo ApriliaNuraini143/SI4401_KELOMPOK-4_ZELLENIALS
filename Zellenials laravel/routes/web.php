@@ -45,13 +45,14 @@ Route::get('tentangkami', function () {
 });
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
-
 Route::post('/login/logins', [UserController::class, 'get'])->name('logins');
-
 Route::get('/register', [UserController::class, 'register'])->name('register');
-
 Route::post('/register/create', [UserController::class, 'create'])->name('create');
-
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::get('/custom', [UserController::class, 'custom'])->name('custom');
+Route::get('/profil', [UserController::class, 'profil'])->name('profil');
+Route::get('/profil/edit}', [UserController::class, 'profileEdit'])->name('editprofil');
+Route::post('/profil/update}', [UserController::class, 'updateProfile'])->name('updateProfile');
 
 #Route::get('keranjang', [UserController::class, 'keranjang'])->name('shopping-cart');

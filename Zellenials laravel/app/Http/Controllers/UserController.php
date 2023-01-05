@@ -15,6 +15,26 @@ class UserController extends Controller
         return view('User.homepage');
     }
 
+    public function custom(){
+        if (session('loggedin',FALSE)){
+            return view('User.custom-product');
+        }else{
+            return redirect()->route('login');
+        }
+    }
+    public function profil(){
+        if (session('loggedin',FALSE)){
+            return view('User.profile');
+        }else{
+            return redirect()->route('login');
+        }
+    }
+
+    public function profileEdit(){
+        $user = User::find(session('uid'));
+        return view('User.edit_profile',compact('user'));
+    }
+
     public function login(Request $request){
         if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
         $remember = $request->cookie('remember');
@@ -68,5 +88,18 @@ class UserController extends Controller
     public function logout(Request $request){
         $request->session()->invalidate();
         return redirect()->route('home')->with('logout-success','Berhasil logout');
+    }
+
+    
+    public function updateProfile(Request $request){
+        $user = User::find(session('uid'));
+        $user->nama_user = $request->name;
+        $user->email = $request->email;
+        if($request->password != "") $user->password = $request->password;
+        $user->save();
+
+        session(['name' => $request->name]);
+        session(['email' => $request->email]);
+        return redirect()->route('profil')->with('edit-success','Berhasil update data profil');
     }
 }

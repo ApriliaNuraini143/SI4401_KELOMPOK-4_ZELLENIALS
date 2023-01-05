@@ -32,11 +32,7 @@
             @endif
             @if (session('loggedin',FALSE))
               <li class="nav-item" style="padding-top: 5px; padding-left: 10px;">
-                <a href="#"><img src="{{asset('img/person-circle.png')}}" alt="person-circle.png"></a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link <?php if ($page == "return-1.php") echo "active" ?>" href="logout">Logout</a>
-              </li>
+                <a href="profil"><img src="{{asset('img/person-circle.png')}}" alt="person-circle.png"></a>
             @else
               <li class="nav-item">
               <a class="nav-link" href="login">Login</a>
