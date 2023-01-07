@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_produk');
             $table->integer('harga');
             $table->longText('deskripsi');
-            $table->enum('size',['XS','S','M','L','XL','XXL']);
+            $table->longText('size');
             $table->string('foto_produk');
             $table->timestamps();
         });

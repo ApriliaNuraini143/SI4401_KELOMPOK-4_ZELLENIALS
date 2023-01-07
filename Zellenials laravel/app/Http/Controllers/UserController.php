@@ -16,11 +16,8 @@ class UserController extends Controller
     }
 
     public function custom(){
-        if (session('loggedin',FALSE)){
-            return view('User.custom-product');
-        }else{
-            return redirect()->route('login');
-        }
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        return view('User.custom-product');
     }
 
     public function aboutUs(){
@@ -28,11 +25,8 @@ class UserController extends Controller
     }
 
     public function profil(){
-        if (session('loggedin',FALSE)){
-            return view('User.profile');
-        }else{
-            return redirect()->route('login');
-        }
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        return view('User.profile');
     }
 
     public function profileEdit(){
@@ -46,18 +40,22 @@ class UserController extends Controller
     }
 
     public function keranjang(){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.shopping-cart');
     }
 
     public function statusPesanan(){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.status-order');
     }
 
     public function pesananSaya(){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.my-order');
     }
 
     public function retur1(){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.return-1');
     }
 
