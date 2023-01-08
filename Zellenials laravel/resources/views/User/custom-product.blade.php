@@ -1,111 +1,144 @@
-<!doctype html>
-<html lang="en">
+@extends('layout.layout')
+@include('layout.navbar')
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Zellenials | Product Detail</title>
-        <link rel="Zellenials icon" href="/Zellenials/Assets/favicon.ico">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    </head>
+@section('content')
+<!-- CONTENT -->
+<body style="background-color: #1f1f1f;">
+<div class="detail-container" style="background-color: white; width: 80%; padding: 20px; border-radius: 15px;
+margin-left:auto; margin-right:auto; margin-top: 48px; display: flex; border: 8px solid #C5FF01">
 
-    <body style="background-color: #1f1f1f;">
-        
-        <!-- NAVBAR -->
+    <!-- IMAGE -->
 
-        <header>
-            
-        <?php require ('../../Templates/navbar-old.php');?>
-
-        </header>
-
-        <!-- NAVBAR -->
-
-        <!-- CONTENT -->
-
-        <div class="detail-container" style="background-color: white; width: 80%; padding: 20px; border-radius: 15px;
-        margin-left:auto; margin-right:auto; margin-top: 48px; display: flex; border: 8px solid #C5FF01">
-
-            <!-- IMAGE -->
-
-            <div class="imageContainer" style="margin-left: 40px;">
-                <div class="imageContainer" style="max-width: 400px;">
-                    <img src="../../Assets/image/short_sleeve/hitam.png" class="d-block w-100" alt="...">
-                </div>
-            </div>
-
-            <!-- IMAGE -->
-
-            <!-- DETAIL PRODUK -->
-
-            <div class="productDetail">
-                <form action="../User/custom-product2.php" method="POST" enctype="multipart/form-data">
-                <h2 style="color: #1f1f1f; margin-left: 40px; margin-top: 16px;"><b>Yuk Kustom Baju Kamu!</b></h2>
-
-                <div class="detail" style="margin-left: 40px; margin-top: 32px;">
-                    <label for="exampleInputEmail1" class="form-label"><b>Nama Produk</b></label>
-                    <input type="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                    <label for="exampleInputEmail1" class="form-label"><b>Tambahkan Desain</b></label>
-                    <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="inputGroupFile02">
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                    </div>
-
-                    <label for="exampleInputEmail1" class="form-label"><b>Pilih Panjang Lengan</b></label>
-                    <div class="dropdown mb-3">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
-                            Pilih Panjang Lengan
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2" style="width: 100%;">
-                            <li><button class="dropdown-item" type="button" style="width: 100%;">Panjang</button></li>
-                            <li><button class="dropdown-item" type="button">Pendek</button></li>
-                        </ul>
-                    </div>
-
-                    <label for="exampleInputEmail1" class="form-label"><b>Tentukan Ukuran Kamu!</b></label>
-                    <br>
-
-                    <div class="size" style="display: flex; gap: 24px;">
-                        <div class="berat-badan">
-                        <label for="exampleInputEmail1" class="form-label">Berat Badan</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                <span class="input-group-text">Kg</span>
-                            </div>
-                        </div>
-
-                        <div class="tinggi-badan">
-                        <label for="exampleInputEmail1" class="form-label">Tinggi Badan</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                <span class="input-group-text">Cm</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="harga-n-button" style="display: flex; align-items: center;">
-                    <div class="harga">
-                        <h5 style="color: #1f1f1f; margin-left: 40px;">Harga</h5>
-                        <h2 style="color: #1f1f1f; margin-left: 40px; font-weight: bold;">Rp. 149.000</h2>
-                    </div>
-
-                    <div class="button" style="margin-left: 98px;">
-                        <button type="submit" class="btn btn-primary" style="background-color: #c5ff01; border-color: #c5ff01;
-                        color: #1f1f1f; font-weight: bold; width: 300px;">Cek Ukuran</button>
-                    </div>
-                </div>
-
-                </form>
-            </div>
-
-            <!-- DETAIL PRODUK -->
+    <div class="imageContainer" style="margin-left: 40px;">
+        <div class="imageContainer" style="max-width: 400px;">
+            <img src="{{asset('storage/Assets/image/short_sleeve/hitam.png')}}" id="img-preview" class="d-block w-100" alt="thumbnail">
         </div>
+    </div>
 
-        <!-- CONTENT -->
+    <!-- IMAGE -->
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    </body>
+    <!-- DETAIL PRODUK -->
 
-</html>
+    <div class="productDetail">
+        <form action="{{route('newCustom')}}" method="POST" enctype="multipart/form-data">
+            
+            <h2 style="color: #1f1f1f; margin-left: 40px; margin-top: 16px;"><b>Yuk Kustom Baju Kamu!</b></h2>
+            <div class="detail" style="margin-left: 40px; margin-top: 32px;">
+                @csrf
+                <label for="exampleInputEmail1" class="form-label"><b>Nama Produk</b></label>
+                <input type="text" class="form-control mb-3" name="name" aria-describedby="emailHelp">
+
+                <label for="exampleInputEmail1" class="form-label"><b>Tambahkan Desain</b></label>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="picProduk" name="img">
+                    <label class="input-group-text" for="inputGroupFile02">Upload (Max 2MB)</label>
+                </div>
+    
+                <label for="exampleInputEmail1" class="form-label"><b>Pilih Panjang Lengan</b></label>
+                <div class="dropdown mb-3">
+                    <select required class="form-select" name="lengan" style="width:100%">
+                        <option disabled selected value="">Pilih Panjang Lengan</option>
+                        <option class="dropdown-item" value="PANJANG">Panjang</option>
+                        <option class="dropdown-item" value="PENDEK">Pendek</option>
+                    </select>
+                </div>
+    
+                <label for="exampleInputEmail1" class="form-label"><b>Tentukan Ukuran Kamu!</b></label>
+                <br>
+    
+                <div class="size" style="display: flex; gap: 24px;">
+                    <div class="berat-badan">
+                    <label for="exampleInputEmail1" class="form-label">Berat Badan</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="berat" id="weight" onchange="changeSize(getSize(Number(document.getElementById('weight').value),Number(document.getElementById('height').value)))">
+                            <span class="input-group-text">Kg</span>
+                        </div>
+                    </div>
+    
+                    <div class="tinggi-badan">
+                    <label for="exampleInputEmail1" class="form-label">Tinggi Badan</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="tinggi" id="height" onchange="changeSize(getSize(Number(document.getElementById('weight').value),Number(document.getElementById('height').value)))">
+                            <span class="input-group-text">Cm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 row fw-bold">
+                    <label for="staticEmail" class="col-sm-4 col-form-label">Ukuran Rekomendasi : </label>
+                    <div class="col-sm-8">
+                        <input type="text" readonly class="form-control-plaintext" name="size" id="size" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="harga-n-button" style="display: flex; align-items: center;">
+                <div class="harga">
+                    <h5 style="color: #1f1f1f; margin-left: 40px;">Harga</h5>
+                    <h2 id="harga" style="color: #1f1f1f; margin-left: 40px; font-weight: bold;">Rp. 149.000</h2>
+                </div>
+    
+                <div class="button" style="margin-left: 98px;">
+                    <input type="submit" class="btn btn-primary" style="background-color: #c5ff01; border-color: #c5ff01;
+                    color: #1f1f1f; font-weight: bold; width: 300px;" value="Pesan">
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- DETAIL PRODUK -->
+</div>
+<script>
+    function getSize(w,h) {
+        let size = ""
+        if (w <= 65) {
+            if (h <= 165) {
+                size="S"
+            }else if(h <= 175){
+                size="M"
+            }else if(h <= 185){
+                size="L"
+            }else{
+                size="XL"
+            }
+        }else if(w <= 75){
+            if (h <= 165) {
+                size="M"
+            }else if(h <= 185){
+                size="L"
+            }else{
+                size="XL"
+            }
+        }else if(w <= 85){
+            if (h <= 165) {
+                size="L"
+            }else{
+                size="XL"
+            }
+        }else if(w <= 92){
+            size = "XL"
+        }else{
+            size = "XXL"
+        }
+        return size
+    }
+    function changeSize(size) {
+        document.getElementById('size').value = size
+        return
+    }
+</script>
+
+<!-- CONTENT -->
+
+@include('layout.footer')
+</body>
+<script>
+
+    $('#picProduk').change(function(e) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            // get loaded data and render thumbnail.
+            document.getElementById("img-preview").src = e.target.result;
+        };
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+    });
+</script>
+@endsection

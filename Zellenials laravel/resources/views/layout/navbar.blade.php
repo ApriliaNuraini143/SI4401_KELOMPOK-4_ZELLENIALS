@@ -30,7 +30,7 @@
               <a class="nav-link <?php if ($page == "status-order.php") echo "active" ?>" href="{{route('status-pesanan')}}">Status Pesanan</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link <?php if ($page == "my-order.php") echo "active" ?>" href="{{route('pesanan-saya')}}">Pesanan Saya</a>
+              <a class="nav-link <?php if ($page == "my-order.php") echo "active" ?>" href="{{route('order')}}">Pesanan Saya</a>
               </li>
               <li class="nav-item">
               <a class="nav-link <?php if ($page == "return-1.php") echo "active" ?>" href="{{route('retur1')}}">Retur Pesanan</a>

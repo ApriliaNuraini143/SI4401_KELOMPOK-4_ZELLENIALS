@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('produk_id')->constrained('produks')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('jumlah');
+            $table->string('size');
+            $table->string('status');
+            $table->string('invoice');
             $table->timestamps();
         });
     }

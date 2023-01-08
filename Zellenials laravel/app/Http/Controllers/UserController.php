@@ -49,7 +49,7 @@ class UserController extends Controller
         return view('User.status-order');
     }
 
-    public function pesananSaya(){
+    public function order(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.my-order');
     }
@@ -57,6 +57,22 @@ class UserController extends Controller
     public function retur1(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.return-1');
+    }
+
+    public function checkout(Request $request){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        return view('User.checkout-page');
+    }
+
+    public function checkoutConfirm(Request $request){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        $total = json_decode($request->cookie('cart',"[]"),true)[session('uid')]['total'];
+        return view('User.checkout-confirm',compact('total'));
+    }
+
+    public function detailProduk($pid){
+        $produk = Produk::find($pid);
+        return view('User.detail-product',compact('produk'));
     }
 
     #Batas Page

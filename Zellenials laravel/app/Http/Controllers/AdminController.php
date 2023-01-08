@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Produk;
+use App\Models\Custom;
 
 
 
 class AdminController extends Controller
 {
+    
     public function view(){
         $produks = Produk::all();
         return view('Admin.view-product',compact('produks'));
@@ -23,6 +25,18 @@ class AdminController extends Controller
         return view('Admin.edit-product',compact('produk'));
     }
 
+    public function viewCustom(){
+        $customs = Custom::latest()->get();
+        return view('Admin.custom-product', compact('customs'));
+    }
+    
+    public function index(){
+        $user = User::with('produks')->latest()->get();
+        $data['user'] = $user;
+        $data['countUser'] = DB::table('users')->count();
+        $data['countPesanan'] = DB::table('pesanans')->count();
+        return view('Admin.admin-dashboard',compact('data'));
+    }
     public function addItem(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         if (session('admin',FALSE) != "TRUE") return redirect()->route('login');
@@ -34,6 +48,13 @@ class AdminController extends Controller
         Storage::delete('public/uploaded/produk/'.$produk->foto_produk);
         $produk->delete();
         return redirect()->route('view');
+    }
+
+    public function deleteOrder($pid){
+        $custom = Custom::find($pid);
+        Storage::delete('public/uploaded/custom/'.$custom->foto_produk);
+        $custom->delete();
+        return redirect()->route('viewCustom');
     }
 
     public function add(Request $request){
@@ -57,7 +78,7 @@ class AdminController extends Controller
             $produk->foto_produk = $produkPic->hashName();
         }
         $produk->save();
-        return redirect()->route('home');
+        return redirect()->route('view');
     }
 
     public function update(Request $request, $pid){
