@@ -2,9 +2,9 @@
 @include('layout.sidebar')
 
 @section('content')
+    <body style="background-color: #1f1f1f; display: flex;"> 
 
-<body style="background-color: #1f1f1f; display: flex;">
-
+    <!-- CONTENT -->
     <div class="contentSection" style="height: 100vh;">
         <div class="title">
             <h1 style="color: white; margin: 56px 40px;">Tambahkan Produk</h1>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="carousel-inner" style="max-width: 300px; border-radius: 16px">
                         <div class="carousel-item active">
-                            <img id="img-preview" src="{{asset('img/image/short_sleeve/hitam.png')}}" class="d-block w-100" alt="...">
+                            <img id="img-preview" src="{{asset('storage/Assets/image/short_sleeve/hitam.png')}}" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -73,12 +73,12 @@
                         <p style="margin-bottom: 0.5rem;">Tambahkan Gambar</p>
                         <div class="input-group mb-3">
                             <input type="file" class="form-control" name="img" id="picProduk">
-                            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                            <label class="input-group-text" for="inputGroupFile02">Upload (Max 2 MB)</label>
                         </div>
                     </div>
 
                     <div class="inputSize">
-                    <p style="margin-bottom: 0.5rem;">Ukuran yang Tersedia</p>
+                        <p style="margin-bottom: 0.5rem;">Ukuran yang Tersedia</p>
                         
                         <div class="checkBox" style="display: flex;">
                             <div class="mb-3 form-check">
@@ -113,7 +113,7 @@
                         </div>
 
                     </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 32px; background-color: #c5ff01; border-color: #c5ff01; color: #1f1f1f; font-weight: bold;" href="/Zellenials/Pages/Admin/view-product.php">Tambahkan</button>
+                        <input type="submit" class="btn btn-primary" style="margin-top: 32px; background-color: #c5ff01; border-color: #c5ff01; color: #1f1f1f; font-weight: bold;" value="Tambahkan">
                 </form>    
             </div>
 
@@ -121,19 +121,19 @@
 
         </div>
     </div>
-    
 </body>
-
 <script>
 
-$('#picProduk').change(function(e) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        // get loaded data and render thumbnail.
-        document.getElementById("img-preview").src = e.target.result;
-    };
-    // read the image file as a data URL.
-    reader.readAsDataURL(this.files[0]);
-});
+    $('#picProduk').change(function(e) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            // get loaded data and render thumbnail.
+            document.getElementById("img-preview").src = e.target.result;
+        };
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+    });
 </script>
-</html>
+
+    <!-- CONTENT -->
+@endsection

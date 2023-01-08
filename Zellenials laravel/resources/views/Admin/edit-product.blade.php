@@ -2,8 +2,7 @@
 @include('layout.sidebar')
 
 @section('content')
-    <body style="background-color: #1f1f1f; display: flex;">
-
+<body style="background-color: #1f1f1f; display: flex;">
         <!-- CONTENT -->
 
         <div class="contentSection" style="height: 100vh;">
@@ -11,7 +10,11 @@
                 <h1 style="color: white; margin: 56px 40px;">Sunting Produk</h1>
             </div>
 
-            <div class="imageContainer" style="margin-left: 40px;">
+            <div class="content" style="display: flex;">
+
+                <!-- IMAGE CAROUSEL -->
+
+                <div class="imageContainer" style="margin-left: 40px;">
                     <div id="carouselExampleIndicators" class="carousel slide">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -70,7 +73,7 @@
                             <p style="margin-bottom: 0.5rem;">Tambahkan Gambar</p>
                             <div class="input-group mb-3">
                                 <input type="file" class="form-control" name="img" id="picProduk">
-                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                <label class="input-group-text" for="inputGroupFile02">Upload (Max 2 MB)</label>
                             </div>
                         </div>
     
@@ -118,7 +121,6 @@
                 <!-- FORM PRODUK -->
             </div>
         </div>
-
         <script>
 
             $('#picProduk').change(function(e) {

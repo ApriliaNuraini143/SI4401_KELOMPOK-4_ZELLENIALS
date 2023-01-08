@@ -2,7 +2,7 @@
 @include('layout.navbar')
 
 @section('content')
-
+<body style="background-color: #1f1f1f;">
   <style>
     .act-btn {
       background-color: #C5FF01;
@@ -116,5 +116,6 @@
   </div>
 
   <!-- BUTTON -->
-
+  @include('layout.footer')
+  </body>
 @endsection

@@ -44,7 +44,7 @@ class UserController extends Controller
         return view('User.shopping-cart');
     }
 
-    public function statusPesanan(){
+    public function orderStatus(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.status-order');
     }
@@ -77,6 +77,113 @@ class UserController extends Controller
 
     #Batas Page
 
+    #Cart dan transaksi
+
+    public function newPesanan(Request $request){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        $cart = json_decode($request->cookie('cart',"[]"),true);
+        $pids = array_keys($cart[session('uid')]['items']);
+        $produks = Produk::whereIn('id', $pids)->get();
+        foreach ($produks as $p => $value) {
+            foreach ($cart[session('uid')]['items'][$value->id]['sizeQTY'] as $size => $quantity){
+                $pesanan = new Pesanan;
+                $pesanan->user_id = session('uid');
+                $pesanan->produk_id = $value->id;
+                $pesanan->jumlah = $quantity;
+                $pesanan->size = $size;
+                $pesanan->status = "Menunggu Konfirmasi";
+                $pesanan->invoice = "ZLNS/".session('uid')."/".$value->id."/".$quantity."/".random_int(0,9999);
+                $pesanan->save();
+            }
+        }
+        unset($cart[session('uid')]);
+        $cart = json_encode($cart);
+        Cookie::queue('cart', $cart, 1440);
+        return redirect()->route('orderStatus');
+    }
+
+    public function cart(Request $request){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        $cart = json_decode($request->cookie('cart',"[]"),true);
+        $cartWithNames = [];
+        if (!isset($cart[session('uid')])) return view('User.shopping-cart',compact('cartWithNames'));
+        $cart = $cart[session('uid')];
+        $pids = array_keys($cart['items']);
+        $produks = Produk::whereIn('id', $pids)->get();
+        $cartWithNames['total'] = $cart['total'];
+        $cartWithNames['cartItem'] = [];
+        foreach ($produks as $p => $value) {
+            foreach ($cart['items'][$value->id]['sizeQTY'] as $size => $quantity){
+                $cartWithNames['cartItem'][$value->id][$size] = [
+                    'name' => $value->nama_produk,
+                    'size' => $size,
+                    'quantity' => $quantity,
+                    'harga' => $quantity*$value->harga
+                ];
+            }
+        }
+        return view('User.shopping-cart',compact('cartWithNames'));
+    }
+
+    public function addCart(Request $request, $pid){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        $cart = json_decode($request->cookie('cart', "[]"),true);
+        $size = $request->size;
+        $user = session('uid');
+        // Add the product to the cart
+        if (array_key_exists($user, $cart)) {
+            if (array_key_exists($pid, $cart[$user]['items'])) {
+                if (array_key_exists($size, $cart[$user]['items'][$pid]['sizeQTY'])) {
+                    $cart[$user]['items'][$pid]['sizeQTY'][$size] += 1;
+                } else {
+                    $cart[$user]['items'][$pid]['sizeQTY'][$size] = 1;
+                }
+            } else{
+                $cart[$user]['items'][$pid]['sizeQTY'][$size] = 1;
+            }
+        } else{
+            $cart[$user]['items'][$pid]['sizeQTY'][$size] = 1;
+        }
+        $cart[$user]['items'][$pid]['harga'] = $request->harga;
+        if (array_key_exists('total',$cart[$user])){
+            $cart[$user]['total'] += $request->harga; 
+        }else{
+            $cart[$user]['total'] = $request->harga;
+        }
+        $cart = json_encode($cart);
+        // Save the cart back to the cookies
+        Cookie::queue('cart', $cart, 1440);
+        return redirect()->route('cart');
+    }
+
+    public function deleteCart(Request $request,$pid,$size){
+        $cart = json_decode($request->cookie('cart', "[]"),true);
+        $cart[session('uid')]['total'] -= $cart[session('uid')]['items'][$pid]['harga']*$cart[session('uid')]['items'][$pid]['sizeQTY'][$size];
+        unset($cart[session('uid')]['items'][$pid]['sizeQTY'][$size]);
+        $cart = json_encode($cart);
+        Cookie::queue('cart', $cart, 1440);
+        return redirect()->route('cart');
+    }
+    
+    public function newCustom(Request $request){
+        $custom = new Custom;
+        $custom->user_id = session('uid');
+        $custom->nama_produk = $request->name;
+        $custom->lengan = $request->lengan;
+        $custom->harga = 149000;
+        $custom->size = $request->size;
+        if($request->hasfile('img')){
+            $customPic = $request->file('img');
+            $customPic->storeAs('public/uploaded/custom/',$customPic->hashName());
+            $custom->foto_produk = $customPic->hashName();
+        }
+        $custom->save();
+        return redirect()->route('home');
+    }
+    
+    
+    
+    #Batas user
     public function login(Request $request){
         if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
         $remember = $request->cookie('remember');

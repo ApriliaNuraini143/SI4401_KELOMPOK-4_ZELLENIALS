@@ -1,8 +1,9 @@
 @extends('layout.layout')
+@include('layout.navbar')
 @section('content')
 
 <!-- CONTENT -->
-<div class="content" style="background-color: #1f1f1f; margin: 80px; height: 620px; border: 8px solid #C5FF01; border-radius: 15px">
+<div class="content mx-5" style="background-color: #1f1f1f; margin-top:15vh; height: 620px; border: 8px solid #C5FF01; border-radius: 15px">
     <div class="container-fluid" style="color:#ffffff">
         <div class="row">
             <div class="col-md-6 align-self-center" >
