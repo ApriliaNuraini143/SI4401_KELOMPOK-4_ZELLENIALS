@@ -16,21 +16,6 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [UserController::class, 'index'])->name('home');
 
-Route::get('view-product', function () {
-    return view('admin.view-product');
-});
-
-Route::get('add-product', function () {
-    return view('admin.add-product');
-});
-
-Route::get('edit-product', function () {
-    return view('admin.edit-product');
-});
-
-Route::get('custom-product', function () {
-    return view('admin.custom-product');
-});
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login/logins', [UserController::class, 'loginget'])->name('logins');
@@ -44,10 +29,15 @@ Route::get('/profil/edit}', [UserController::class, 'profileEdit'])->name('editp
 Route::post('/profil/update}', [UserController::class, 'updateProfile'])->name('updateProfile');
 
 Route::get('/keranjang', [UserController::class, 'keranjang'])->name('keranjang');
-Route::get('/about-us', [UserController::class, 'aboutUs'])->name('about');
+Route::get('/about-us', [UserController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/status-pesanan', [UserController::class, 'statusPesanan'])->name('status-pesanan');
 Route::get('/pesanan-saya', [UserController::class, 'pesananSaya'])->name('pesanan-saya');
 Route::get('/retur1', [UserController::class, 'retur1'])->name('retur1');
 
+Route::get('/admin/add', [AdminController::class, 'addItem'])->name('addItem');
+Route::get('/admin/viewProduk', [AdminController::class, 'view'])->name('view');
+Route::get('/admin/view/{idProduk}/edit', [AdminController::class, 'edit'])->name('editProduk');
 
-#Route::get('keranjang', [UserController::class, 'keranjang'])->name('shopping-cart');
+Route::post('/admin/add/new', [AdminController::class, 'add'])->name('addProduk');
+Route::post('/admin/produk/{idProduk}/update', [AdminController::class, 'update'])->name('updateProduk');
+Route::get('/admin/produk/{idProduk}/delete', [AdminController::class, 'delete'])->name('deleteProduk');

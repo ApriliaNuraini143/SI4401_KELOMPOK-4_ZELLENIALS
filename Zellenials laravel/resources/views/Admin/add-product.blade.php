@@ -23,7 +23,7 @@
                     </div>
                     <div class="carousel-inner" style="max-width: 300px; border-radius: 16px">
                         <div class="carousel-item active">
-                            <img id="img-preview" src="{{asset('storage/Assets/image/short_sleeve/hitam.png')}}" class="d-block w-100" alt="...">
+                            <img id="img-preview" src="{{asset('img/image/short_sleeve/hitam.png')}}" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

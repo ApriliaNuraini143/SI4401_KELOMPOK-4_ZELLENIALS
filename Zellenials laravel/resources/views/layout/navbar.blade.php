@@ -14,14 +14,14 @@
               <a class="nav-link <?php if ($page == "homepage.php") echo "active" ?>" aria-current="page" href="{{route('home')}}">Beranda</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="{{route('tentangkami')}}">Tentang Kami</a>
+              <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="{{route('aboutUs')}}">Tentang Kami</a>
               </li>
             @else
               <li class="nav-item">
               <a class="nav-link <?php if ($page == "homepage.php") echo "active" ?>" aria-current="page" href="{{route('home')}}">Beranda</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="{{route('about')}}">Tentang Kami</a>
+              <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="{{route('aboutUs')}}">Tentang Kami</a>
               </li>
               <li class="nav-item">
               <a class="nav-link <?php if ($page == "shopping-cart.php") echo "active" ?>" href="{{route('keranjang')}}">Keranjang</a>

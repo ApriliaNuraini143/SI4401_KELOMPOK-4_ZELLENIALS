@@ -11,7 +11,7 @@ margin-left:auto; margin-right:auto; margin-top: 48px; display: flex; border: 8p
 
     <div class="imageContainer" style="margin-left: 40px;">
         <div class="imageContainer" style="max-width: 400px;">
-            <img src="{{asset('storage/Assets/image/short_sleeve/hitam.png')}}" id="preview" class="d-block w-100" alt="thumbnail">
+            <img src="{{asset('img/image/short_sleeve/hitam.png')}}" id="preview" class="d-block w-100" alt="thumbnail">
         </div>
     </div>
 

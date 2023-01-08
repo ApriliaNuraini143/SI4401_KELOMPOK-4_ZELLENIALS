@@ -33,13 +33,13 @@
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{asset('storage/Assets/jumbotron/BR.png')}}" class="d-block w-100" alt="image-caraousel1" style="max-height: 100%;">
+        <img src="{{asset('img/jumbotron/BR.png')}}" class="d-block w-100" alt="image-caraousel1" style="max-height: 100%;">
       </div>
       <div class="carousel-item">
-        <img src="{{asset('storage/Assets/jumbotron/MTC.png')}}" class="d-block w-100" alt="image-caraousel2" style="max-height: 100%;">
+        <img src="{{asset('img/jumbotron/MTC.png')}}" class="d-block w-100" alt="image-caraousel2" style="max-height: 100%;">
       </div>
       <div class="carousel-item">
-        <img src="{{asset('storage/Assets/jumbotron/UP.png')}}" class="d-block w-100" alt="image-caraousel3" style="max-height: 800px;">
+        <img src="{{asset('img/jumbotron/UP.png')}}" class="d-block w-100" alt="image-caraousel3" style="max-height: 800px;">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -63,7 +63,7 @@
 
   <div class="d-flex justify-content-center" style="margin-top: 75px; gap: 32px;">
     <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
-      <img src="{{asset('storage/Assets/image/BR/BR1.png')}}" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+      <img src="{{asset('img/image/BR/BR1.png')}}" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
         <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
             <div class="card-body">
                 <h5 class="card-title mb-3">Brainstorming</h5>
@@ -75,7 +75,7 @@
     </div>
 
     <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
-      <img src="{{asset('storage/Assets/image/MTC/MTC1.png')}}" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
+      <img src="{{asset('img/image/MTC/MTC1.png')}}" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
         <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
             <div class="card-body">
                 <h5 class="card-title mb-3">Money Take Control</h5>
@@ -87,7 +87,7 @@
     </div>
 
     <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
-      <img src="{{asset('storage/Assets/image/UP/UP1.png')}}" class="card-img-top" alt="BR1.png" style="max-height:256px; object-fit: cover;">
+      <img src="{{asset('img/image/UP/UP1.png')}}" class="card-img-top" alt="BR1.png" style="max-height:256px; object-fit: cover;">
         <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
             <div class="card-body">
                 <h5 class="card-title mb-3">Under Pressure</h5>
