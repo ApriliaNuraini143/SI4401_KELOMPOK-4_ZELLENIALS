@@ -9,20 +9,14 @@
 
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 70px;">
+          <li class="nav-item">
+            <a class="nav-link <?php if ($page == "homepage.php") echo "active" ?>" aria-current="page" href="{{route('home')}}">Beranda</a>
+          </li>
             @if (!session('loggedin',FALSE))
               <li class="nav-item">
-                <a class="nav-link <?php if ($page == "homepage.php") echo "active" ?>" aria-current="page" href="{{route('home')}}">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="{{route('aboutUs')}}">Tentang Kami</a>
+                <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="{{route('about')}}">Tentang Kami</a>
               </li>
             @else
-            <li class="nav-item">
-                <a class="nav-link <?php if ($page == "homepage.php") echo "active" ?>" aria-current="page" href="{{route('home')}}">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link <?php if ($page == "tentangkami.php") echo "active" ?>" href="{{route('aboutUs')}}">Tentang Kami</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link <?php if ($page == "shopping-cart.php") echo "active" ?>" href="{{route('cart')}}">Keranjang</a>
               </li>
@@ -33,12 +27,12 @@
                 <a class="nav-link <?php if ($page == "my-order.php") echo "active" ?>" href="{{route('order')}}">Pesanan Saya</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?php if ($page == "return-1.php") echo "active" ?>" href="{{route('retur1')}}">Retur Pesanan</a>
+                <a class="nav-link <?php if ($page == "return-1.php") echo "active" ?>" href="{{route('return')}}">Retur Pesanan</a>
               </li>
             @endif
             @if (session('loggedin',FALSE))
               <li class="nav-item" style="padding-top: 5px; padding-left: 10px;">
-              <a href="{{route('profil')}}"><img src="{{asset('img/person-circle.png')}}" alt="person-circle.png"></a>
+              <a href="{{route('profil')}}"><img src="{{asset('storage/Assets/person-circle.png')}}" alt="person-circle.png"></a>
               </li>
             @else
               <li class="nav-item">

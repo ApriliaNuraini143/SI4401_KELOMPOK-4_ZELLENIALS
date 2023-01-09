@@ -3,63 +3,48 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use App\Models\User;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Storage;
+use App\Models\User;
+use App\Models\Produk;
+use App\Models\Custom;
+use App\Models\Pesanan;
+
+
+
 
 class UserController extends Controller
 {
     public function index(){
-        return view('User.homepage');
+        if (session('admin',FALSE) == "TRUE") return redirect()->route('dashboard');
+        $produks = Produk::latest()->get();
+        return view('User.homepage', compact('produks'));
+    }
+    public function aboutUs(){
+        return view('User.tentangkami');
     }
 
     public function custom(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.custom-product');
     }
-
-    public function aboutUs(){
-        return view('User.tentangkami');
-    }
-
     public function profil(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.profile');
     }
 
-    public function profileEdit(){
-        $user = User::find(session('uid'));
-        return view('User.edit_profile',compact('user'));
-    }
-
-    public function register(){
-        if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
-        return view('User.Registrasi');
-    }
-
-    public function keranjang(){
-        if (!session('loggedin',FALSE)) return redirect()->route('login');
-        return view('User.shopping-cart');
-    }
-
-    public function orderStatus(){
-        if (!session('loggedin',FALSE)) return redirect()->route('login');
-        return view('User.status-order');
-    }
-
-    public function order(){
-        if (!session('loggedin',FALSE)) return redirect()->route('login');
-        return view('User.my-order');
-    }
-
-    public function retur1(){
+    public function return(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.return-1');
     }
 
-    public function checkout(Request $request){
+    public function register(){
+        if (session('loggedin',FALSE)) return redirect()->route('home');
+        return view('User.Registrasi');
+    }
+
+    public function checkout(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.checkout-page');
     }
@@ -75,9 +60,28 @@ class UserController extends Controller
         return view('User.detail-product',compact('produk'));
     }
 
-    #Batas Page
+    
+    public function profileEdit(){
+        $user = User::find(session('uid'));
+        return view('User.edit_profile',compact('user'));
+    }
+    
+    public function logout(Request $request){
+        $request->session()->invalidate();
+        return redirect()->route('home')->with('logout-success','Berhasil logout');
+    }
 
-    #Cart dan transaksi
+    public function orderStatus(){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        $pesanans = User::find(session('uid'))->produks()->latest()->get();
+        return view('User.status-order',compact('pesanans'));
+    }
+
+    public function order(){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        $pesanans = User::find(session('uid'))->produks()->latest()->get();
+        return view('User.my-order',compact('pesanans'));
+    }
 
     public function newPesanan(Request $request){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
@@ -125,6 +129,22 @@ class UserController extends Controller
         return view('User.shopping-cart',compact('cartWithNames'));
     }
 
+    // cart = [
+    //     userId (misal 1) = [
+    //         items = [
+    //             pid (mis. 2) = [
+    //                 sieqty = [
+    //                     s= 1,
+    //                     m=2,
+    //                     xl=3,
+    //                 ]
+    //                 harga = 100000
+    //             ]
+    //         ]
+    //         totalHarga = 600000
+    //     ]
+    // ]
+
     public function addCart(Request $request, $pid){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         $cart = json_decode($request->cookie('cart', "[]"),true);
@@ -164,7 +184,7 @@ class UserController extends Controller
         Cookie::queue('cart', $cart, 1440);
         return redirect()->route('cart');
     }
-    
+
     public function newCustom(Request $request){
         $custom = new Custom;
         $custom->user_id = session('uid');
@@ -180,10 +200,7 @@ class UserController extends Controller
         $custom->save();
         return redirect()->route('home');
     }
-    
-    
-    
-    #Batas user
+
     public function login(Request $request){
         if (session('loggedin',FALSE)) return redirect()->route('home')->with('ilegal','Already Logged in');
         $remember = $request->cookie('remember');
@@ -201,19 +218,8 @@ class UserController extends Controller
         return view('User.Login',compact('data'));
     }
 
-    public function create(Request $request){
-        $u = DB::table('users')->where('email',$request->email)->first();
-        if($u) return redirect()->route('register')->with('email-exist','email must be unique');
-        if($request->password != $request->password1) return redirect()->route('register')->with('password-not-match','please try again');
-        $user = new user;
-        $user->nama_user = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        return redirect()->route('login');
-    }
 
-    public function loginget(Request $request){
+    public function loginScript(Request $request){
         $u = DB::table('users')->where('email',$request->email)->first();
         if ($u && $u->password == $request->password) {
             session(['loggedin' => TRUE]);
@@ -225,6 +231,10 @@ class UserController extends Controller
                 Cookie::queue('email',$u->email,1440);
                 Cookie::queue('password',$u->password,1440);
                 Cookie::queue('remember',TRUE,1440);
+            }else{
+                Cookie::queue('email',"",0);
+                Cookie::queue('password',"",0);
+                Cookie::queue('remember',"",0);
             }
             return redirect()->route('home')->with('login-success','Berhasil login');
         }else{
@@ -232,12 +242,18 @@ class UserController extends Controller
         }
     }
 
-    public function logout(Request $request){
-        $request->session()->invalidate();
-        return redirect()->route('home')->with('logout-success','Berhasil logout');
+    public function registerScript(Request $request){
+        $u = DB::table('users')->where('email',$request->email)->first();
+        if($u) return redirect()->route('daftar')->with('email-exist','email must be unique');
+        if($request->password != $request->password1) return redirect()->route('register')->with('password-not-match','please try again');
+        $user = new User;
+        $user->nama_user = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect()->route('login');
     }
 
-    
     public function updateProfile(Request $request){
         $user = User::find(session('uid'));
         $user->nama_user = $request->name;
@@ -249,4 +265,5 @@ class UserController extends Controller
         session(['email' => $request->email]);
         return redirect()->route('profil')->with('edit-success','Berhasil update data profil');
     }
+
 }

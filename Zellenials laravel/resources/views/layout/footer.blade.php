@@ -14,9 +14,9 @@
         <div class="p-3">
         <ul class="list-group-border-width: 0px;" style="padding-top: 20px;">
           <li class="list-group-item"><b>Kontak</b></li>
-          <li class="list-group-item"><img src="{{asset('storage/Assets/WhatsApp.png')}}" alt="whatsapp.png"> 085161252804</li>
-          <li class="list-group-item"><img src="{{asset('storage/Assets/envelope.png')}}" alt="envelope.png"> zellenialscompany@gmail.com</li>
-          <li class="list-group-item"><img src="{{asset('storage/Assets/Instagram.png')}}" alt="instagram.png"> zellenials.co</li>
+          <li class="list-group-item"><img src="{{asset('img/WhatsApp.png')}}" alt="whatsapp.png"> 085161252804</li>
+          <li class="list-group-item"><img src="{{asset('img/envelope.png')}}" alt="envelope.png"> zellenialscompany@gmail.com</li>
+          <li class="list-group-item"><img src="{{asset('img/Instagram.png')}}" alt="instagram.png"> zellenials.co</li>
         </div>
       </div>
 </footer>

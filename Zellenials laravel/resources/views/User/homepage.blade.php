@@ -1,6 +1,5 @@
 @extends('layout.layout')
 @include('layout.navbar')
-
 @section('content')
 <body style="background-color: #1f1f1f;">
   <style>
@@ -62,43 +61,23 @@
   </div>
 
   <div class="d-flex justify-content-center" style="margin-top: 75px; gap: 32px;">
-    <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
-      <img src="{{asset('img/image/BR/BR1.png')}}" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
-        <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
-            <div class="card-body">
-                <h5 class="card-title mb-3">Brainstorming</h5>
-                <p class="card-text">You can't imagine what's tremendous world gonna be if we use 100% of our brain while brainstorming</p>
-                <p class="card-text" style="font-weight: 700; color: green;">Rp 149.000</p>
-                <button type="submit" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</button>
-            </div>
-        </form>
-    </div>
+    @foreach ($produks as $p)   
+      <div class="row-cols-3">
+        <div class="col-3">
+          <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
+            <img src="{{asset('storage/uploaded/produk/'.$p->foto_produk)}}" class="card-img-top" alt="{{$p->nama_produk}}" style="height:256px;max-height:256px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">{{$p->nama_produk}}</h5>
+                    <p class="card-text">{{$p->deskripsi}}</p>
+                    <p class="card-text" style="font-weight: 700; color: green;">Rp {{number_format($p->harga)}}</p>
+                    <a href="{{route('detailProduk',$p->id)}}" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</a>
+                </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
-      <img src="{{asset('img/image/MTC/MTC1.png')}}" class="card-img-top" alt="card-img1.png" style="max-height:256px; object-fit: cover;">
-        <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
-            <div class="card-body">
-                <h5 class="card-title mb-3">Money Take Control</h5>
-                <p class="card-text">Whatever you want, whatever you need, money is the solution</p><br><br>
-                <p class="card-text" style="font-weight: 700; color: green;">Rp 149.000</p>
-                <button type="submit" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</button>
-            </div>
-        </form>
-    </div>
-
-    <div class="card" style="width: 18rem; box-shadow: 4px 4px 4px #C5FF01;">
-      <img src="{{asset('img/image/UP/UP1.png')}}" class="card-img-top" alt="BR1.png" style="max-height:256px; object-fit: cover;">
-        <form action="../User/detail-product.php" method="POST" enctype="multipart/form-data">
-            <div class="card-body">
-                <h5 class="card-title mb-3">Under Pressure</h5>
-                <p class="card-text">Sometimes people need to be under pressure.</p><br><br>
-                <p class="card-text" style="font-weight: 700; color: green;">Rp 149.000</p>
-                <button type="submit" class="mt-2 btn btn-primary col" style="width:100%; margin: 10px 0px 10px">Lihat Produk</button>
-            </div>
-        </form>
-    </div>
+    @endforeach
   </div>
-
   <!-- CARD -->
 
   <!-- BUTTON -->
@@ -108,7 +87,7 @@
   </div>
 
   <div class="d-flex justify-content-center" style="margin-top: 50px;">
-    <a href="../User/custom-product.php" class="btn btn-outline-success btn-lg" style="--bs-btn-border-color: #C5FF01;
+    <a href="{{route('custom')}}" class="btn btn-outline-success btn-lg" style="--bs-btn-border-color: #C5FF01;
     --bs-btn-hover-bg: #C5FF01;
     --bs-btn-color: #C5FF01;
     --bs-btn-hover-border-color: #C5FF01;
@@ -116,6 +95,8 @@
   </div>
 
   <!-- BUTTON -->
+
   @include('layout.footer')
-  </body>
+</body>
 @endsection
+

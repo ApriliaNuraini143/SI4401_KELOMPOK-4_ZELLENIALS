@@ -9,6 +9,6 @@ class Custom extends Model
 {
     use HasFactory;
     public function user(){
-        return $this->belongsToMany(User::class,'orders','custom_id','user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
 }

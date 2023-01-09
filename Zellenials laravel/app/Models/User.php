@@ -10,9 +10,9 @@ class User extends Model
     use HasFactory;
     protected $table = 'users';
     public function produks(){
-        return $this->belongsToMany(Produk::class,'pesanans','user_id','produk_id');
+        return $this->belongsToMany(Produk::class,'pesanans','user_id','produk_id')->withPivot('jumlah', 'status', 'invoice','created_at', 'size')->as('pesanan');
     }
     public function customs(){
-        return $this->belongsToMany(Custom::class,'orders','user_id','custom_id');
+        return $this->hasMany(Custom::class,'user_id');
     }
 }
