@@ -23,6 +23,6 @@
       <input type="submit" class="btn btn-primary" value="simpan">
     </form>
   </div>
-  @include('layout.footer')
+  
 </body>
 @endsection

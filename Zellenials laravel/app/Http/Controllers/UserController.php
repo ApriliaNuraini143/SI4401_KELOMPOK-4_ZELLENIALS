@@ -97,6 +97,11 @@ class UserController extends Controller
                 $pesanan->size = $size;
                 $pesanan->status = "Menunggu Konfirmasi";
                 $pesanan->invoice = "ZLNS/".session('uid')."/".$value->id."/".$quantity."/".random_int(0,9999);
+                
+                $pesananPic = $request->file('img');
+                
+                $pesananPic->storeAs('public/uploaded/bukti/',$pesananPic->hashName());
+                $pesanan->foto_pembayaran = $pesananPic->hashName();
                 $pesanan->save();
             }
         }
@@ -112,6 +117,7 @@ class UserController extends Controller
         $cartWithNames = [];
         if (!isset($cart[session('uid')])) return view('User.shopping-cart',compact('cartWithNames'));
         $cart = $cart[session('uid')];
+        if ($cart['total'] == 0 ) return view('User.shopping-cart',compact('cartWithNames'));
         $pids = array_keys($cart['items']);
         $produks = Produk::whereIn('id', $pids)->get();
         $cartWithNames['total'] = $cart['total'];

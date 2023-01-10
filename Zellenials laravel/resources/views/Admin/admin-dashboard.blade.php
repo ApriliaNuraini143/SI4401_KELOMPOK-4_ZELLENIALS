@@ -53,8 +53,8 @@
                         <th scope="col">Email</th>
                         <th scope="col">Produk</th>
                         <th scope="col">Harga</th>
-                        <th scope="col">Gambar Desain</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Bukti Pembayaran</th>
                         <th scope="col"></th>
                         
                     </tr>
@@ -67,40 +67,42 @@
                             <td>{{$u->email}}</td>
                             <td>{{$pesanan->nama_produk}}</td>
                             <td>Rp {{number_format($pesanan->pesanan->jumlah*$pesanan->harga)}}</td>
-                            <td><a href="/download/produk/{{$pesanan->foto_produk}}" class="btn btn-primary"
-                            style="margin-top: 0px; color: white; font-weight: bold;">Download Gambar</a></td>
-                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"
+                            <td> <input type="text" readonly class="form-control-plaintext text-center" name="status-text" id="status-text" value="{{$pesanan->pesanan->status}}"> </td>
+                            <td><a href="/download/bukti/{{$pesanan->pesanan->foto_pembayaran}}" class="btn btn-primary"
+                            style="margin-top: 0px; color: white; font-weight: bold;">Download Bukti</a></td>
+                            
+                            <td><a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-{{$pesanan->pesanan->id}}"
                             style="margin-top: 0px; background-color: blue;
-                            border-color: blue; color: white; font-weight: 400;">Edit</button>
+                            border-color: blue; color: white; font-weight: 400;">Edit</a>
+
                             <button type="submit" class="btn btn-primary"
-                            style="margin-top: 0px; background-color: red;
-                            border-color: red; color: white; font-weight: 400;">X</button></td>
+                            style="margin-top: 0px; background-color: red;"
+                            onclick="if (confirm('Yakin ingin menghapus order tersebut ?')) {window.location.href = '{{route('deletePesanan',$pesanan->pesanan->id)}}';}">X</button></td>
                             </tr>
 
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered bg-white" role="document">
-                                    <div class="modal-body">
-                                        <div class="inputImg">
-                                            <p style="margin-bottom: 0.5rem;">Edit Status</p>
-                                            <div class="input-group mb-3">
-                                                <input type="file" class="form-control" id="inputGroupFile02">
+                            <div class="modal fade" id="edit-{{$pesanan->pesanan->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="form">
+                                        <form action="{{route('updateStatus', $pesanan->pesanan->id)}}" method="GET">
+                                            @csrf
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <select class="form-select" aria-label="selectStatus" id="valueStatus" name="status">
+                                                            <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
+                                                            <option value="Packaging">Packaging</option>
+                                                            <option value="Delivered">Delivered</option>
+                                                            <option value="Completed">Completed</option>
+                                                            <option value="Retur">Retur</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button href="{{route('updateStatus', $pesanan->pesanan->id)}}" type="submit" class="btn btn-primary" id="saveButton" data-bs-dismiss="modal">Save changes</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="form-label">Status</label>
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option value="0" selected>Pending</option>
-                                                <option value="1">Packaging</option>
-                                                <option value="2">Deliverd</option>
-                                                <option value="3">Complated</option>
-                                                <option value="4">Retur</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -111,8 +113,41 @@
         </div>
     </div>
 
+    <script>
+        function getStatus(s) {
+        let size = ""
+        if (s == "1") {
+            status == "Packaging"
+        }else if(s == "2"){
+            if (h <= 165) {
+                size="M"
+            }else if(h <= 185){
+                size="L"
+            }else{
+                size="XL"
+            }
+        }else if(s == "3"){
+            if (h <= 165) {
+                size="L"
+            }else{
+                size="XL"
+            }
+        }else if(s == "4"){
+            size = "XL"
+        }else{
+            status = "Pending"
+        }
+        return size
+    }
+
+        function changeStatus(s) {
+            document.getElementById('status-text').value = status
+            return
+        }
+    </script>
     <!-- CONTENT -->
 
     <!-- Modal -->
 </body>
+
 @endsection

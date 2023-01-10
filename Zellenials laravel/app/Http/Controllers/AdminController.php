@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Produk;
 use App\Models\Custom;
+use App\Models\Pesanan;
 
 
 
@@ -55,6 +56,12 @@ class AdminController extends Controller
         Storage::delete('public/uploaded/custom/'.$custom->foto_produk);
         $custom->delete();
         return redirect()->route('viewCustom');
+    }
+
+    public function deletePesanan($id){
+        $pesanan = Pesanan::find($id);
+        $pesanan->delete();
+        return redirect()->route('dashboard');
     }
 
     public function add(Request $request){
@@ -104,5 +111,13 @@ class AdminController extends Controller
         }
         $produk->save();
         return redirect()->route('view');
+    }
+
+    public function updateStatus(Request $request, $i){
+        $pesanan = Pesanan::find($i);
+        $pesanan->status = $request->status;
+        
+        $pesanan->save();
+        return redirect()->route('dashboard');
     }
 }

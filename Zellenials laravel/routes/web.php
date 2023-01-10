@@ -35,16 +35,18 @@ Route::get('/checkout/confirm', [UserController::class, 'checkoutConfirm'])->nam
 
 Route::post('/cart/add/{idProduk}', [UserController::class, 'addCart'])->name('addCart');
 Route::get('/cart/delete/{idProduk}/{size}', [UserController::class, 'deleteCart'])->name('deleteCart');
-Route::get('/transaction', [UserController::class, 'newPesanan'])->name('newPesanan');
+Route::post('/transaction', [UserController::class, 'newPesanan'])->name('newPesanan');
 
 Route::post('/custom/order', [UserController::class, 'newCustom'])->name('newCustom');
 Route::get('/custom/{idCustom}/delete', [AdminController::class, 'deleteOrder'])->name('deleteOrder');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
+Route::get('/admin/updateStatus/{id}', [AdminController::class, 'updateStatus'])->name('updateStatus');
 Route::get('/admin/add', [AdminController::class, 'addItem'])->name('addItem');
 Route::get('/admin/viewProduk', [AdminController::class, 'view'])->name('view');
 Route::get('/admin/view/{idProduk}/edit', [AdminController::class, 'edit'])->name('editProduk');
 Route::get('/admin/view/custom', [AdminController::class, 'viewCustom'])->name('viewCustom');
+Route::get('/{idCustom}/delete', [AdminController::class, 'deletePesanan'])->name('deletePesanan');
 
 Route::post('/admin/add/new', [AdminController::class, 'add'])->name('addProduk');
 Route::post('/admin/produk/{idProduk}/update', [AdminController::class, 'update'])->name('updateProduk');
@@ -64,3 +66,7 @@ Route::get('/download/produk/{filename}', function ($filename)
     return Storage::download("public/uploaded/produk/".$filename);
 });
 
+Route::get('/download/bukti/{filename}', function ($filename)
+{
+    return Storage::download("public/uploaded/bukti/".$filename);
+});

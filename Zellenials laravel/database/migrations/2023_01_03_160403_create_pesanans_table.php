@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('size');
             $table->string('status');
             $table->string('invoice');
+            $table->string('foto_pembayaran');
             $table->timestamps();
         });
     }

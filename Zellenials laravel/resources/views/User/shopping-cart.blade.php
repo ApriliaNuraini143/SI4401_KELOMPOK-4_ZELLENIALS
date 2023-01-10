@@ -72,6 +72,6 @@
     </div>
     @endisset
 
-    @include('layout.footer')
+    
 </body>
 @endsection

@@ -71,6 +71,6 @@
     </div>
     <!-- CONTENT -->
 
-    @include('layout.footer')
+    
 <body style="background-color: #1f1f1f;">
 @endsection

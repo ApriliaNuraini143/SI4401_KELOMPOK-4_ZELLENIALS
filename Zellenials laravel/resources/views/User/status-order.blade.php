@@ -46,6 +46,6 @@
     <!-- TABEL STATUS -->
 
     <!-- CONTENT -->
-    @include('layout.footer')
+    
 </body>
 @endsection
