@@ -24,9 +24,9 @@
                 <div class="mb-4">
                         <label for="exampleFormControlInput1" class="form-label">Pilih Ekspedisi</label>
                         <select class="form-select" aria-label="Default select example" name="expedisi" placeholder="Pilihan Ekspedisi">
-                            <option value="0" selected>JNE</option>
-                            <option value="1">JNT</option>
-                            <option value="2">GOSEND</option>
+                            <option value="JNE" selected>JNE</option>
+                            <option value="JNT">JNT</option>
+                            <option value="GOSEND">GOSEND</option>
                         </select>
                     </div>
                 <div class="mb-4">

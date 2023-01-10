@@ -10,6 +10,8 @@ use App\Models\User;
 use App\Models\Produk;
 use App\Models\Custom;
 use App\Models\Pesanan;
+use App\Models\Pengiriman;
+
 
 
 
@@ -32,8 +34,8 @@ class AdminController extends Controller
     }
     
     public function index(){
-        $user = User::with('produks')->latest()->get();
-        $data['user'] = $user;
+        $pesanan = Pesanan::latest()->get();
+        $data['pesanan'] = $pesanan;
         $data['countUser'] = DB::table('users')->count();
         $data['countPesanan'] = DB::table('pesanans')->count();
         return view('Admin.admin-dashboard',compact('data'));

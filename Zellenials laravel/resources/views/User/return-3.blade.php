@@ -22,7 +22,7 @@
     </div>
 
     <div class="checkout-btn" style="text-align: center; color: white;">
-            <a href="{{route('orderStatus')}}" class="btn" style="--bs-btn-border-color: #C5FF01; 
+            <a href="{{route('order')}}" class="btn" style="--bs-btn-border-color: #C5FF01; 
                     --bs-btn-bg: #C5FF01;
                     --bs-btn-hover-bg: #1f1f1f;
                     --bs-btn-color: #000000;

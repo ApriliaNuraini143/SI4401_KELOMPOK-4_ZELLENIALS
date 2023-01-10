@@ -21,7 +21,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Nama Produk</th>
-                        <th scope="col">Warna</th>
+                        <th scope="col">Tipe lengan</th>
                         <th scope="col">Ukuran</th>
                         <th scope="col">Kuantitas</th>
                         <th scope="col">Status</th>

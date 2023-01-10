@@ -61,34 +61,33 @@
                     </tr>
                 </thead>
                 <tbody align="center">
-                    @foreach ($data['user'] as $u)
-                        @foreach ($u->produks as $pesanan)
-                            @if($pesanan->pesanan->status == "Retur")
+                    @foreach ($data['pesanan'] as $pesanan)
+                            @if($pesanan->status == "Retur")
                                 @continue
                             @endif
                             <tr>
-                            <td>{{$u->nama_user}}</td>
-                            <td>{{$u->email}}</td>
-                            <td>{{$pesanan->nama_produk}}</td>
-                            <td>Rp {{number_format($pesanan->pesanan->jumlah*$pesanan->harga)}}</td>
-                            <td> <input type="text" readonly class="form-control-plaintext text-center" name="status-text" id="status-text" value="{{$pesanan->pesanan->status}}"> </td>
-                            <td><a href="/download/bukti/{{$pesanan->pesanan->foto_pembayaran}}" class="btn btn-primary"
+                            <td>{{$pesanan->user->nama_user}}</td>
+                            <td>{{$pesanan->user->email}}</td>
+                            <td>{{$pesanan->produk->nama_produk}}</td>
+                            <td>Rp {{number_format($pesanan->jumlah*$pesanan->produk->harga)}}</td>
+                            <td> <input type="text" readonly class="form-control-plaintext text-center" name="status-text" id="status-text" value="{{$pesanan->status}}"> </td>
+                            <td><a href="/download/bukti/{{$pesanan->foto_pembayaran}}" class="btn btn-primary"
                             style="margin-top: 0px; color: white; font-weight: bold;">Download Bukti</a></td>
                             
-                            <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detail-{{$pesanan->pesanan->id}}"
+                            <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detail-{{$pesanan->id}}"
                             style="margin-top: 0px; background-color: green;
                             border-color: green; color: white; font-weight: bold;">Lihat Detail Customer</button>
 
-                            <td><a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-{{$pesanan->pesanan->id}}"
+                            <td><a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-{{$pesanan->id}}"
                             style="margin-top: 0px; background-color: blue;
                             border-color: blue; color: white; font-weight: 400;">Edit</a>
 
                             <button type="submit" class="btn btn-primary"
                             style="margin-top: 0px; background-color: red;"
-                            onclick="if (confirm('Yakin ingin menghapus order tersebut ?')) {window.location.href = '{{route('deletePesanan',$pesanan->pesanan->id)}}';}">X</button></td>
+                            onclick="if (confirm('Yakin ingin menghapus order tersebut ?')) {window.location.href = '{{route('deletePesanan',$pesanan->id)}}';}">X</button></td>
                             </tr>
 
-                            <div class="modal fade" id="detail-{{$pesanan->pesanan->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="detail-{{$pesanan->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="form">
                                         <div class="modal-content">
@@ -97,16 +96,16 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p class="fs-5 fw-bold"> Nama </p>
-                                                <p class="fs-6"> {{var_dump($pesanan->pengiriman)}} </p>
+                                                <p class="fs-6"> {{$pesanan->pengiriman->nama}}</p>
                                                 <p class="fs-5 fw-bold"> No hp </p>
-                                                <p class="fs-6"> 081111 </p>
+                                                <p class="fs-6"> {{$pesanan->pengiriman->no_hp}} </p>
                                                 <p class="fs-5 fw-bold"> Email </p>
-                                                <p class="fs-6"> aaa@gmail.com </p>
+                                                <p class="fs-6"> {{$pesanan->pengiriman->email}} </p>
                                                 <p class="fs-5 fw-bold"> Alamat </p>
-                                                <p class="fs-6"> Jl. aa </p>
+                                                <p class="fs-6"> {{$pesanan->pengiriman->alamat}} </p>
                                             </div>
                                             <div class="modal-footer">
-                                                <a href="https://wa.me/{otomatisNOHPCLIENT}" type="button" class="btn btn-secondary">Hubungi WA Client</a>
+                                                <a href="https://wa.me/{{$pesanan->pengiriman->no_hp}}" type="button" class="btn btn-secondary">Hubungi WA Client</a>
                                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </div>
@@ -117,33 +116,32 @@
 
                             <!-- Modal Edit -->
 
-                            <div class="modal fade" id="edit-{{$pesanan->pesanan->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="edit-{{$pesanan->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="form">
-                                        <form action="{{route('updateStatus', $pesanan->pesanan->id)}}" method="POST">
+                                        <form action="{{route('updateStatus', $pesanan->id)}}" method="POST">
                                             @csrf
                                             <div class="modal-content">
                                                 <div class="modal-body">
                                                     <div class="mb-3">
                                                         <select class="form-select" aria-label="selectStatus" id="valueStatus" name="status">
-                                                            <option value="Menunggu Konfirmasi" @selected($pesanan->pesanan->status == "Menunggu Konfirmasi")>Menunggu Konfirmasi</option>
-                                                            <option value="Packaging" @selected($pesanan->pesanan->status == "Packaging")>Packaging</option>
-                                                            <option value="Delivered" @selected($pesanan->pesanan->status == "Delivered")>Delivered</option>
-                                                            <option value="Completed" @selected($pesanan->pesanan->status == "Completed")>Completed</option>
-                                                            <option value="Retur" @selected($pesanan->pesanan->status == "Retur")>Retur</option>
+                                                            <option value="Menunggu Konfirmasi" @selected($pesanan->status == "Menunggu Konfirmasi")>Menunggu Konfirmasi</option>
+                                                            <option value="Packaging" @selected($pesanan->status == "Packaging")>Packaging</option>
+                                                            <option value="Delivered" @selected($pesanan->status == "Delivered")>Delivered</option>
+                                                            <option value="Completed" @selected($pesanan->status == "Completed")>Completed</option>
+                                                            <option value="Retur" @selected($pesanan->status == "Retur")>Retur</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button href="{{route('updateStatus', $pesanan->pesanan->id)}}" type="submit" class="btn btn-primary" id="saveButton" data-bs-dismiss="modal">Save changes</button>
+                                                    <button href="{{route('updateStatus', $pesanan->id)}}" type="submit" class="btn btn-primary" id="saveButton" data-bs-dismiss="modal">Save changes</button>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach 
                     @endforeach
                 </tbody>
             </table>
@@ -168,36 +166,35 @@
                     </tr>
                 </thead>
                 <tbody align="center">
-                    @foreach ($data['user'] as $u)
-                        @foreach ($u->produks as $pesanan)
-                            @if($pesanan->pesanan->status != "Retur")
+                    @foreach ($data['pesanan'] as $pesanan)
+                            @if($pesanan->status != "Retur")
                                 @continue
                             @endif
                             <tr>
-                            <td>{{$u->nama_user}}</td>
-                            <td>{{$pesanan->nama_produk}}</td>
-                            <td>JNE</td>
-                            <td>{{$pesanan->pesanan->alasan_retur}}</td>
+                            <td>{{$pesanan->user->nama_user}}</td>
+                            <td>{{$pesanan->produk->nama_produk}}</td>
+                            <td>{{$pesanan->pengiriman->expedisi}}</td>
+                            <td>{{$pesanan->alasan_retur}}</td>
                             
-                            <td> <input type="text" readonly class="form-control-plaintext text-center" name="status-text" id="status-text" value="{{$pesanan->pesanan->status}}"> </td>
+                            <td> <input type="text" readonly class="form-control-plaintext text-center" name="status-text" id="status-text" value="{{$pesanan->status}}"> </td>
                             
-                            <td><a href="/download/bukti/{{$pesanan->pesanan->foto_pembayaran}}" class="btn btn-primary"
+                            <td><a href="/download/bukti/{{$pesanan->foto_pembayaran}}" class="btn btn-primary"
                             style="margin-top: 0px; color: white; font-weight: bold;">Download Bukti</a></td>
                             
-                            <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detail-{{$pesanan->pesanan->id}}"
+                            <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detail-{{$pesanan->id}}"
                             style="margin-top: 0px; background-color: green;
                             border-color: green; color: white; font-weight: bold;">Lihat Detail Customer</button>
 
-                            <td><a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editreturn-{{$pesanan->pesanan->id}}"
+                            <td><a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editreturn-{{$pesanan->id}}"
                             style="margin-top: 0px; background-color: blue;
                             border-color: blue; color: white; font-weight: 400;">Edit</a>
 
                             <button type="submit" class="btn btn-primary"
                             style="margin-top: 0px; background-color: red;"
-                            onclick="if (confirm('Yakin ingin menghapus retur tersebut ?')) {window.location.href = '{{route('deletePesanan',$pesanan->pesanan->id)}}';}">X</button></td>
+                            onclick="if (confirm('Yakin ingin menghapus retur tersebut ?')) {window.location.href = '{{route('deletePesanan',$pesanan->id)}}';}">X</button></td>
                             </tr>
 
-                            <div class="modal fade" id="detail-{{$pesanan->pesanan->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="detail-{{$pesanan->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="form">
                                         <div class="modal-content">
@@ -206,14 +203,16 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p class="fs-5 fw-bold"> Nama </p>
-                                                <p class="fs-6"> Nama </p>
+                                                <p class="fs-6"> {{$pesanan->pengiriman->nama}}</p>
                                                 <p class="fs-5 fw-bold"> No hp </p>
-                                                <p class="fs-6"> 081111 </p>
+                                                <p class="fs-6"> {{$pesanan->pengiriman->no_hp}} </p>
                                                 <p class="fs-5 fw-bold"> Email </p>
-                                                <p class="fs-6"> aaa@gmail.com </p>
+                                                <p class="fs-6"> {{$pesanan->pengiriman->email}} </p>
+                                                <p class="fs-5 fw-bold"> Alamat </p>
+                                                <p class="fs-6"> {{$pesanan->pengiriman->alamat}} </p>
                                             </div>
                                             <div class="modal-footer">
-                                                <a href="https://wa.me/{otomatisNOHPCLIENT}" type="button" class="btn btn-secondary">Hubungi WA Client</a>
+                                                <a href="https://wa.me/{{$pesanan->pengiriman->no_hp}}" type="button" class="btn btn-secondary">Hubungi WA Client</a>
                                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </div>
@@ -223,10 +222,10 @@
 
                             <!-- Modal edit return -->
 
-                            <div class="modal fade" id="editreturn-{{$pesanan->pesanan->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editreturn-{{$pesanan->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="form">
-                                        <form action="{{route('updateStatus', $pesanan->pesanan->id)}}" method="POST">
+                                        <form action="{{route('updateStatus', $pesanan->id)}}" method="POST">
                                             @csrf
                                             <div class="modal-content">
                                                 <div class="modal-body">
@@ -242,15 +241,13 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button href="{{route('updateStatus', $pesanan->pesanan->id)}}" type="submit" class="btn btn-primary" id="saveButton" data-bs-dismiss="modal">Save changes</button>
+                                                    <button href="{{route('updateStatus', $pesanan->id)}}" type="submit" class="btn btn-primary" id="saveButton" data-bs-dismiss="modal">Save changes</button>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-
-                        @endforeach 
                     @endforeach
                 </tbody>
             </table>

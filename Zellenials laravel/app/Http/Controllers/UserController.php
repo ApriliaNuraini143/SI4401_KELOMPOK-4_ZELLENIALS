@@ -58,6 +58,8 @@ class UserController extends Controller
         $returPic = $request->file('picRetur');
         $returPic->storeAs('public/uploaded/retur/',$returPic->hashName());
         $pesanan->foto_retur = $returPic->hashName();
+        $pesanan->pengiriman->expedisi = $request->expedisi;
+        $pesanan->pengiriman->save();
         $pesanan->save();
         return view('User.return-3',compact('invoice'));
     }
@@ -99,14 +101,14 @@ class UserController extends Controller
 
     public function orderStatus(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
-        $pesanans = User::find(session('uid'))->produks()->latest()->get();
-        return view('User.status-order',compact('pesanans'));
+        $user = User::find(session('uid'))->with('customs')->with('produks')->latest()->first();
+        return view('User.status-order',compact('user'));
     }
 
     public function order(){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
-        $pesanans = User::find(session('uid'))->produks()->latest()->get();
-        return view('User.my-order',compact('pesanans'));
+        $user = User::find(session('uid'))->with('customs')->with('produks')->latest()->first();
+        return view('User.my-order',compact('user'));
     }
 
     public function newPesanan(Request $request){

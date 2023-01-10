@@ -24,8 +24,10 @@
                 </tr>
             </thead>
             <tbody align="center">
-                    @foreach ($pesanans as $p)
-                    @if ($p->pesanan->status != "Retur")
+                    @foreach ($user->produks as $p)
+                    @if ($p->pesanan->status == "Retur")
+                        @continue
+                    @endif
                         <tr>
                             <th scope="row">{{$loop->iteration}}</th>
                             <td>{{$p->nama_produk}}</td>
@@ -52,13 +54,44 @@
                                 <td>---</td>
                             @endif
                         </tr>
-                    @endif
                     @endforeach
             </tbody>
         </table>
 
     </div>
 
+    <div class="detail-container" style="background-color: white; width:90%; padding: 20px; border-radius: 15px;
+    margin-left:auto; margin-right:auto; margin-top: 40px;">
+        <table class="table">
+            <thead style="background-color: #C5FF01;" align="center">
+                <tr sty>
+                    <th scope="col">#</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Nama Produk</th>
+                    <th scope="col">Tipe lengan</th>
+                    <th scope="col">Ukuran</th>
+                    <th scope="col">Kuantitas</th>
+                    <th scope="col">Status</th>
+                    
+                </tr>
+            </thead>
+            <tbody align="center">
+                @foreach ($user->customs as $p)
+                <tr>
+                    <th scope="row">{{$loop->iteration}}</th>
+                    <td>{{$user->nama_user}}</td>
+                    <td>{{$p->nama_produk}}</th>
+                    <td>{{$p->lengan}}</td>
+                    <td>{{$p->size}}</td>
+                    <td>1</td>
+                    <td style="color: blue;">{{$p->status}}</td>
+                    
+                </tr>
+                @endforeach
+            
+            </tbody>
+        </table>
+    </div>
     
     <div class="op-title" style="text-align: center; color:white; margin-top: 50px;">
       <h1 style="font-size: 48px;"><b>Retur Kamu~</b></h1>
@@ -71,18 +104,16 @@
                 <tr sty>
                 <th scope="col">#</th>
                 <th scope="col">Nama Produk</th>
-                <th scope="col">Jasa Ekspedisi</th>
                 <th scope="col">Alasan</th>
                 <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody align="center">
-                @foreach ($pesanans as $p)
+                @foreach ($user->produks as $p)
                     @if($p->pesanan->status == "Retur")
                     <tr>
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>{{$p->nama_produk}}</td>
-                        <td>JNE</td>
                         <td>{{$p->pesanan->alasan_retur}}</td>
                         <td>{{$p->pesanan->status}}</td>
                     </tr>

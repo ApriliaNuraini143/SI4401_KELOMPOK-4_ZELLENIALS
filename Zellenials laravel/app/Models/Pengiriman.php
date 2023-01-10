@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pengiriman extends Model
 {
     use HasFactory;
+    protected $table = 'pengirimen';
     public function pesanan()
     {
         return $this->hasOne(Pesanan::class);
