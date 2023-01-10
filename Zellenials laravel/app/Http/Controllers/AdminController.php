@@ -120,4 +120,12 @@ class AdminController extends Controller
         $pesanan->save();
         return redirect()->route('dashboard');
     }
+
+    public function updateStatusCustom(Request $request, $cid){
+        $custom = Custom::find($cid);
+        $custom->status = $request->status;
+        $custom->save();
+        return redirect()->route('viewCustom');
+        
+    }
 }

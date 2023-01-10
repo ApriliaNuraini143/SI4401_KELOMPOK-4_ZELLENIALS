@@ -28,16 +28,18 @@
             </thead>
             <tbody align="center">
                 @foreach ($pesanans as $p)
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>{{$p->nama_produk}}</td>
-                        <td>{{$p->pesanan->size}}</td>
-                        <td>{{$p->pesanan->jumlah}}</td>
-                        <td>Rp {{number_format($p->harga*$p->pesanan->jumlah)}}</td>
-                        <td>{{$p->pesanan->created_at}}</td>
-                        <td>{{$p->pesanan->invoice}}</td>
-                        <td style="color: blue;">{{$p->pesanan->status}}</td>
-                    </tr>
+                    @if ($p->pesanan->status != "Completed" && $p->pesanan->status != "Retur")
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>{{$p->nama_produk}}</td>
+                            <td>{{$p->pesanan->size}}</td>
+                            <td>{{$p->pesanan->jumlah}}</td>
+                            <td>Rp {{number_format($p->harga*$p->pesanan->jumlah)}}</td>
+                            <td>{{$p->pesanan->created_at}}</td>
+                            <td>{{$p->pesanan->invoice}}</td>
+                            <td style="color: blue;">{{$p->pesanan->status}}</td>
+                        </tr>
+                    @endif
                 @endforeach
             </tbody>
         </table>

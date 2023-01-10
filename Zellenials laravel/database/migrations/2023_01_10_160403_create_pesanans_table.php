@@ -17,11 +17,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('produk_id')->constrained('produks')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('pengiriman_id')->constrained('pengirimen')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('jumlah');
             $table->string('size');
             $table->string('status');
             $table->string('invoice');
             $table->string('foto_pembayaran');
+            $table->string('foto_retur')->default("");
+            $table->longText('alasan_retur')->default("");
             $table->timestamps();
         });
     }

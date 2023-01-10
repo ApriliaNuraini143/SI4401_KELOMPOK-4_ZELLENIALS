@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('harga');
             $table->enum('size',['XS','S','M','L','XL','XXL']);
             $table->string('foto_produk');
+            $table->string('status');
             $table->timestamps();
         });
     }

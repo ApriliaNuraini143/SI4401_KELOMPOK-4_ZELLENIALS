@@ -10,6 +10,8 @@ use App\Models\User;
 use App\Models\Produk;
 use App\Models\Custom;
 use App\Models\Pesanan;
+use App\Models\Pengiriman;
+
 
 
 
@@ -34,9 +36,30 @@ class UserController extends Controller
         return view('User.profile');
     }
 
-    public function return(){
+    public function return(Request $request){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
         return view('User.return-1');
+    }
+
+    public function returnConfirm(Request $request){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        $invoice = $request->invoice;
+        $produk = DB::table('pesanans')->where('invoice', 'like', $invoice)->first();
+        if (!$produk) return redirect()->route('return');
+        return view('User.return-2',compact("invoice"));
+    }
+
+    public function returnDone(Request $request){
+        if (!session('loggedin',FALSE)) return redirect()->route('login');
+        $invoice = $request->invoice;
+        $pesanan = Pesanan::where('invoice', 'like', $invoice)->first();
+        $pesanan->status = "Retur";
+        $pesanan->alasan_retur = $request->alasan;
+        $returPic = $request->file('picRetur');
+        $returPic->storeAs('public/uploaded/retur/',$returPic->hashName());
+        $pesanan->foto_retur = $returPic->hashName();
+        $pesanan->save();
+        return view('User.return-3',compact('invoice'));
     }
 
     public function register(){
@@ -49,10 +72,13 @@ class UserController extends Controller
         return view('User.checkout-page');
     }
 
-    public function checkoutConfirm(Request $request){
+    public function checkoutConfirm(Request $request, $idPengiriman){
         if (!session('loggedin',FALSE)) return redirect()->route('login');
-        $total = json_decode($request->cookie('cart',"[]"),true)[session('uid')]['total'];
-        return view('User.checkout-confirm',compact('total'));
+        $data = [
+            "total" => json_decode($request->cookie('cart',"[]"),true)[session('uid')]['total'],
+            "idPengiriman" => $idPengiriman
+        ];
+        return view('User.checkout-confirm',compact('data'));
     }
 
     public function detailProduk($pid){
@@ -93,11 +119,11 @@ class UserController extends Controller
                 $pesanan = new Pesanan;
                 $pesanan->user_id = session('uid');
                 $pesanan->produk_id = $value->id;
+                $pesanan->pengiriman_id = $request->idPengiriman;
                 $pesanan->jumlah = $quantity;
                 $pesanan->size = $size;
                 $pesanan->status = "Menunggu Konfirmasi";
                 $pesanan->invoice = "ZLNS/".session('uid')."/".$value->id."/".$quantity."/".random_int(0,9999);
-                
                 $pesananPic = $request->file('img');
                 
                 $pesananPic->storeAs('public/uploaded/bukti/',$pesananPic->hashName());
@@ -109,6 +135,19 @@ class UserController extends Controller
         $cart = json_encode($cart);
         Cookie::queue('cart', $cart, 1440);
         return redirect()->route('orderStatus');
+    }
+
+    public function newPengiriman(Request $request){
+        $pengiriman = new Pengiriman;
+        $pengiriman->nama = $request->nama;
+        $pengiriman->email = $request->email;
+        $pengiriman->no_hp = $request->no_hp;
+        $pengiriman->alamat = $request->alamat;
+        $pengiriman->kabupaten = $request->kabupaten;
+        $pengiriman->kodepos = $request->kodepos;
+        $pengiriman->expedisi = $request->expedisi;
+        $pengiriman->save();
+        return redirect()->route('checkoutConfirm',$pengiriman->id);
     }
 
     public function cart(Request $request){
@@ -198,6 +237,7 @@ class UserController extends Controller
         $custom->lengan = $request->lengan;
         $custom->harga = 149000;
         $custom->size = $request->size;
+        $custom->status = "Menunggu Konfirmasi";
         if($request->hasfile('img')){
             $customPic = $request->file('img');
             $customPic->storeAs('public/uploaded/custom/',$customPic->hashName());

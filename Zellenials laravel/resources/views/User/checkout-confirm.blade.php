@@ -28,7 +28,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Bukti Pembayaran</label>
-                                <input class="form-control" type="file" id="file" name="img">
+                                <input required class="form-control" type="file" id="file" name="img">
                             </div>
                             <!--
                             <div class="text-container" style="text-align: right;">
@@ -57,11 +57,12 @@
 
                     <div class="total" style="text-align: right; margin-right: 55px">
                         <p style="font-size: 24px; margin-bottom: -0.1rem">Total Belanja:</p>
-                        <p style="font-size: 40px; margin-bottom: -0.1rem"><b>Rp {{number_format($total)}}</b></p>     
+                        <p style="font-size: 40px; margin-bottom: -0.1rem"><b>Rp {{number_format($data['total'])}}</b></p>     
                     </div>
                     
                     
                     <div class="button" style="margin-left: 98px;">
+                        <input type="hidden" name="idPengiriman" value="{{$data['idPengiriman']}}">
                         <input type="submit" class="btn btn-primary" style="background-color: #c5ff01; border-color: #c5ff01;
                         color: #1f1f1f; font-weight: bold; width: 91%; margin-top: 20px; border-radius: 8px;" value="Pesan">
                     </div>

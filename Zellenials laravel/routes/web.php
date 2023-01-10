@@ -29,9 +29,15 @@ Route::get('/cart', [UserController::class, 'cart'])->name('cart');
 Route::get('/order', [UserController::class, 'order'])->name('order');
 Route::get('/order/status', [UserController::class, 'orderStatus'])->name('orderStatus');
 Route::get('/return', [UserController::class, 'return'])->name('return');
+Route::post('/return/confirm', [UserController::class, 'returnConfirm'])->name('returnConfirm');
+Route::post('/return/done', [UserController::class, 'returnDone'])->name('returnDone');
+
 Route::get('/produk/{idProduk}/detail', [UserController::class, 'detailProduk'])->name('detailProduk');
 Route::get('/checkout', [UserController::class, 'checkout'])->name('checkout');
-Route::get('/checkout/confirm', [UserController::class, 'checkoutConfirm'])->name('checkoutConfirm');
+
+Route::post('/checkout/add/pengiriman', [UserController::class, 'newPengiriman'])->name('newPengiriman');
+Route::get('/checkout/confirm/{idPengiriman}', [UserController::class, 'checkoutConfirm'])->name('checkoutConfirm');
+
 
 Route::post('/cart/add/{idProduk}', [UserController::class, 'addCart'])->name('addCart');
 Route::get('/cart/delete/{idProduk}/{size}', [UserController::class, 'deleteCart'])->name('deleteCart');
@@ -41,7 +47,10 @@ Route::post('/custom/order', [UserController::class, 'newCustom'])->name('newCus
 Route::get('/custom/{idCustom}/delete', [AdminController::class, 'deleteOrder'])->name('deleteOrder');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
-Route::get('/admin/updateStatus/{id}', [AdminController::class, 'updateStatus'])->name('updateStatus');
+
+Route::post('/admin/updateStatus/{id}', [AdminController::class, 'updateStatus'])->name('updateStatus');
+Route::post('/admin/custom/updateStatus/{id}', [AdminController::class, 'updateStatusCustom'])->name('updateStatusCustom');
+
 Route::get('/admin/add', [AdminController::class, 'addItem'])->name('addItem');
 Route::get('/admin/viewProduk', [AdminController::class, 'view'])->name('view');
 Route::get('/admin/view/{idProduk}/edit', [AdminController::class, 'edit'])->name('editProduk');

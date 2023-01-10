@@ -9,6 +9,6 @@ class Produk extends Model
 {
     use HasFactory;
     public function user(){
-        return $this->belongsToMany(User::class,'pesanans','produk_id','user_id')->withPivot('jumlah', 'status', 'invoice','created_at', 'size')->as('pesanan');
+        return $this->belongsToMany(User::class,'pesanans','produk_id','user_id')->withPivot('jumlah', 'status', 'invoice','created_at','id', 'size','alasan_retur','foto_retur')->hasOne(Pengiriman::class,'pengiriman_id')->as('pesanan');
     }
 }

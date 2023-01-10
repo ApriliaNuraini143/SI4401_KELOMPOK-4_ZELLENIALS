@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pesanan extends Model
+class Pengiriman extends Model
 {
     use HasFactory;
-    public function pengiriman()
+    public function pesanan()
     {
-        return $this->belongsTo(Pengiriman::class);
+        return $this->hasOne(Pesanan::class);
     }
 }
